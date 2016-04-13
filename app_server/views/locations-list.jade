@@ -14,3 +14,7 @@ block content
          each location in locations
          h3
           a(href="/location")= location.name
+         h3
+          a.button.large.expanded= location.distance
+        
+          p.address= location.address
