@@ -6,8 +6,11 @@ block content
       .medium-6.columns
         h1= pageHeader.title
         small &nbsp;#{pageHeader.strapline}
-    
-    each location in locations
+    .row
+
+         
            .medium-6.columns
-        h3
-          a(href="/location")=location.name
+   
+         each location in locations
+         h3
+          a(href="/location")= location.name
