@@ -1,6 +1,6 @@
 var mongoose = require( 'mongoose' );
 
-var openingTimeSchema = mongoose.Schema({
+var openingTimeSchema = new mongoose.Schema({
 	days: {type: String, required: true},
 	opening: String,
 	closing: String,
@@ -14,7 +14,7 @@ var reviewSchema = new mongoose.Schema({
 	createdOn: {type: Date, "default", Date.now}
 });
 
-var locationSchema = mongoose.Schema({ 
+var locationSchema = new mongoose.Schema({ 
   name: {type: String, required: true},
   address: String,
   rating: {type: Number, "default": 0, min: 0, max: 5},
