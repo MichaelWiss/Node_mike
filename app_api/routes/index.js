@@ -16,4 +16,4 @@ router.get('/locations/:locationid/reviews/:reviewid', ctrlReviews.reviewsReadOn
 router.put('/locations/:locationid/reviews/:reviewid', ctrlReviews.reviewsUpdateOne);
 router.delete('/locations/:locationid/reviews/:reviewid', ctrlReviews.reviewsDeleteOne);
 
-module.exports = router
+module.exports = router;
