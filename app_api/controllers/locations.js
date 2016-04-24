@@ -11,7 +11,11 @@ module.exports.locationsCreate = function (req, res) {
 };
 
 module.exports.locationsReadOne = function (req, res) {
-  sendJSONresponse(res, 200, {"status" : "success"});
+  Loc
+     .findById(req.params.locationid)
+     .exec(function(err, location) {
+     	sendJSONresponse(res, 200, location);
+     });
 };
 
 module.exports.locationsUpdateOne = function (req, res) {
