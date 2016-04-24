@@ -11,11 +11,26 @@ module.exports.locationsCreate = function (req, res) {
 };
 
 module.exports.locationsReadOne = function (req, res) {
+ if (req.params && req.params.locationid) {
   Loc
      .findById(req.params.locationid)
      .exec(function(err, location) {
-     	sendJSONresponse(res, 200, location);
-     });
+       if (!location) {
+     	sendJSONresponse(res, 404, {
+     		"message": "locationid not found"
+     	});
+     	return;
+     } else if (err) {
+     	sendJSONresponse(res, 404, location);
+     	return;
+     }
+     sendJSONresponse(res, 200, location);
+    });
+} else {
+	sendJSONresponse(res, 404, {
+		"message": "No kocationid in request"
+	});
+  }
 };
 
 module.exports.locationsUpdateOne = function (req, res) {
