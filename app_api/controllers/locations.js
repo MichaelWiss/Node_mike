@@ -30,5 +30,3 @@ module.exports.locationsListByDistance = function (req, res) {
   sendJSONresponse(res, 200, {"status" : "success"});
 };
 
-
-
