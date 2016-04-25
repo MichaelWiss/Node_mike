@@ -14,6 +14,7 @@ module.exports.locationsReadOne = function (req, res) {
  if (req.params && req.params.locationid) {
   Loc
      .findById(req.params.locationid)
+     .select('name reviews')
      .exec(function(err, location) {
        if (!location) {
      	sendJSONresponse(res, 404, {
