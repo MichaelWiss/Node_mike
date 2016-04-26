@@ -15,7 +15,9 @@ module.exports.locationsReadOne = function (req, res) {
   Loc
      .findById(req.params.locationid)
      .select('name reviews')
-     .exec(function(err, location) {
+     .exec(
+       function(err, location) {
+       	var response, review;
        if (!location) {
      	sendJSONresponse(res, 404, {
      		"message": "locationid not found"
