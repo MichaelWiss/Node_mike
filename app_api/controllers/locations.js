@@ -30,14 +30,29 @@ module.exports.locationsReadOne = function (req, res) {
      if (location.reviews && location.reviews.length > 0) {
      	review = location.reviews.id(req.params.reviewid);
      	if (!review) {
-     	  
+     	  sendJSONresponse(res, 404, {
+     	  	"message": "reviewid not found"
+     	  });
+     	} else {
+     	  response = {
+     	  	location : {
+     	  		name: location.name,
+     	  		id : req.params.locationid
+     	  	   },
+     	  	   review : review
+     	    };
+     	    sendJSONresponse(res, 200, response);
      	}
-     }
-     sendJSONresponse(res, 200, location);
-    });
+     } else {
+     sendJSONresponse(res, 404, {
+     	"message": "No reviews found"
+     });
+    }
+   }
+  );
 } else {
 	sendJSONresponse(res, 404, {
-		"message": "No kocationid in request"
+		"message": "Not found, locationid and reviewid are both required"
 	});
   }
 };
