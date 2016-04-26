@@ -27,6 +27,12 @@ module.exports.locationsReadOne = function (req, res) {
      	sendJSONresponse(res, 404, location);
      	return;
      }
+     if (location.reviews && location.reviews.length > 0) {
+     	review = location.reviews.id(req.params.reviewid);
+     	if (!review) {
+     	  
+     	}
+     }
      sendJSONresponse(res, 200, location);
     });
 } else {
