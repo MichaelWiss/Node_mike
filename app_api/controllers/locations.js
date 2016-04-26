@@ -66,6 +66,12 @@ module.exports.locationsDeleteOne = function (req, res) {
 };
 
 module.exports.locationsListByDistance = function (req, res) {
-  sendJSONresponse(res, 200, {"status" : "success"});
+  var lng = parseFloat(req.query.lng);
+  var lat = parseFloat(req.query.lat);
+  var point = {
+  	type: "Point",
+  	coordinates: [lng, lat]
+  };
+  Loc.geoNear(point, options, callback);
 };
 
