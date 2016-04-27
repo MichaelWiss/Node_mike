@@ -29,6 +29,20 @@ module.exports.reviewsCreate = function (req, res) {
    }
  };
 
+ var doAddReview = function(req, res, location) {
+ 	if(!location) {
+ 		sendJSONresponse(res, 404, {
+ 			"message": "locationid not found"
+ 		});
+ 	} else {
+ 		location.reviews.push({
+ 			author: req.body.author,
+ 			rating: req.body.rating,
+ 			
+ 		})
+ 	}
+ }
+
  module.exports.reviewsReadOne = function (req, res) {
     sendJSONresponse(res, 200, {"status" : "success"});
  };
