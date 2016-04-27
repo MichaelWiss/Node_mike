@@ -6,6 +6,22 @@ var sendJSONresponse = function(res, status, content) {
 	res.json(content);
 };
 
+var theEarth = (function(){
+	var earthRadius = 3959; //km is 6371
+	var getDistanceFromRads = function(rads) {
+		return parseFloat(rads * earthRadius);
+	};
+
+	var getRadsFromDistance = function(distance) {
+		return parseFloat(distance /earthRadius);
+	};
+
+	return {
+		getDistanceFromRads : getDistanceFromRads,
+		getRadsFromDistance : getRadsFromDistance
+	};
+}) ();
+
 module.exports.locationsCreate = function (req, res) {
   sendJSONresponse(res, 200, {"status" : "success"});
 };
