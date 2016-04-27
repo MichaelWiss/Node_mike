@@ -94,8 +94,17 @@ module.exports.locationsListByDistance = function (req, res) {
   	type: "Point",
   	coordinates: [lng, lat]
   };
+  if (!lng || !lat) {
+  	sendJSONresponse(res, 404, {
+  		"message": "lng and lat query parameters are required"
+  	});
+  	return;
+  }
   Loc.geoNear(point, geoOptions, function (err, results, stats){
     var locations = [];
+    if (err) {
+    	sendJSONresponse(res, 404, err);
+    } else {
     results.forEach(function(doc) {
     	locations.push({
           distance: theEarth.getDistanceFromRads(doc.dis),
@@ -107,6 +116,7 @@ module.exports.locationsListByDistance = function (req, res) {
       });
     });
     sendJSONresponse(res,200, locations);
+   }
  });
 };
 
