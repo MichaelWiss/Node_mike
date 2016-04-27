@@ -96,7 +96,23 @@ module.exports.locationsReadOne = function (req, res) {
 };
 
 module.exports.locationsUpdateOne = function (req, res) {
-  sendJSONresponse(res, 200, {"status" : "success"});
+  if (!req.params.locationid) {
+  	sendJSONresponse(res, 404, {
+  		"message": "Not found, locationid is required"
+  	});
+  	return;
+  }
+  Loc
+    .findById(req.params.locationid)
+    .select('-reviews -rating')
+    .exec(
+    	function(err, location) {
+    		if (!location) {
+    			sendJSONresponse(res, 400, err);
+    			return;
+    		}
+    		location.name = req.body.name;
+    	})
 };
 
 module.exports.locationsDeleteOne = function (req, res) {
