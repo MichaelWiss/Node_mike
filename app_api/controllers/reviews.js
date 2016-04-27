@@ -38,10 +38,20 @@ module.exports.reviewsCreate = function (req, res) {
  		location.reviews.push({
  			author: req.body.author,
  			rating: req.body.rating,
- 			
- 		})
+ 			reviewText: req.body.reviewText
+ 		});
+ 		location.save(function(err, location) {
+           var thisReview;
+           if (err) {
+           	sendJSONresponse(res, 400, err);
+          } else {
+          	updateAverageRating(location._id);
+          	thisReview = location.reviews[location.reviews.length - 1];
+          	sendJSONresponse(res, 201, thisReview);
+          }
+ 		});
  	}
- }
+ };
 
  module.exports.reviewsReadOne = function (req, res) {
     sendJSONresponse(res, 200, {"status" : "success"});
