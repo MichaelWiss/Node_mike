@@ -53,6 +53,20 @@ module.exports.reviewsCreate = function (req, res) {
  	}
  };
 
+ var updateAverageRating = function(locationid) {
+ 	Loc
+ 	   .findById(locationId)
+ 	   .select('rating reviews')
+ 	   .exec(
+ 	   	function(err, location) {
+ 	   	  if (!err) {
+ 	   	  	doSetAverageRating(location);
+ 	   	  }
+ 	   	});
+ };
+
+ 
+
  module.exports.reviewsReadOne = function (req, res) {
     sendJSONresponse(res, 200, {"status" : "success"});
  };
