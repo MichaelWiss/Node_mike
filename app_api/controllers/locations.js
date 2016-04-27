@@ -68,6 +68,11 @@ module.exports.locationsDeleteOne = function (req, res) {
 module.exports.locationsListByDistance = function (req, res) {
   var lng = parseFloat(req.query.lng);
   var lat = parseFloat(req.query.lat);
+
+  var geoOptions = {
+  	spherical: true,
+  	num: 10
+  };
   var point = {
   	type: "Point",
   	coordinates: [lng, lat]
