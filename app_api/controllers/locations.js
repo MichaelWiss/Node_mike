@@ -94,6 +94,19 @@ module.exports.locationsListByDistance = function (req, res) {
   	type: "Point",
   	coordinates: [lng, lat]
   };
-  Loc.geoNear(point, geoOptions, callback);
+  Loc.geoNear(point, geoOptions, function (err, results, stats){
+    var locations = [];
+    results.forEach(function(doc) {
+    	locations.push({
+          distance: theEarth.getDistanceFromRads(doc.dis),
+          name: doc.obj.name,
+          address: doc.obj.name,
+          rating: doc.obj.rating,
+          facilities: doc.obj.facilities,
+          _id: doc.obj._id
+      });
+    });
+    sendJSONresponse(res,200, locations);
+ });
 };
 
