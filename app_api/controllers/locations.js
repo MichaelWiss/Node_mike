@@ -112,7 +112,23 @@ module.exports.locationsUpdateOne = function (req, res) {
     			return;
     		}
     		location.name = req.body.name;
-    	})
+    		location.address = req.body.address;
+    		location.facilities.split(",");
+    		location.coords = [parseFloat(req.body.lng), parseFloat(req.body.lat)];
+    		location.openingTimes = [{
+    			days: req.body.days1,
+    			opening: req.body.opening1,
+    			closing: req.body.closing2,
+    			closed: req.body.closed2,
+    		}];
+    		location.save(function(err, location) {
+    			if (err) {
+    				sendJSONresponse(res, 404, err);
+    			} else {
+    				sendJSONresponse(res, 200, location);
+    			}
+    		});
+    	);
 };
 
 module.exports.locationsDeleteOne = function (req, res) {
