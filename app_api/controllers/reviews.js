@@ -65,7 +65,25 @@ module.exports.reviewsCreate = function (req, res) {
  	   	});
  };
 
- 
+ var doSetAverageRating = function(location) {
+ 	var i, reviewCount, ratingAverage, ratingTotal;
+ 	if (location.reviews && location.reviews.length > 0) {
+ 		reviewCount = location.reviews.length;
+ 		ratingTotal = 0;
+ 		for (i = 0; i < reviewCount; i++) {
+ 			ratingTotal = ratingTotal + locationreviews[i].rating;
+ 		}
+ 		ratingAverage = parseInt(ratingTotal / reviewCount, 10);
+ 		location.rating = ratingAverage;
+ 		location.save(function(err) {
+ 			if (err) {
+ 				console.log(err);
+ 			} else {
+ 				console.log("Average rating updated to", ratingAverage);
+ 			}
+ 		})
+ 	}
+ };
 
  module.exports.reviewsReadOne = function (req, res) {
     sendJSONresponse(res, 200, {"status" : "success"});
