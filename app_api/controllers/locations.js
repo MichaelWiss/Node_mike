@@ -45,7 +45,6 @@ module.exports.locationsCreate = function (req, res) {
       	} else {
       	    sendJSONresponse(res, 201, location);
       	}
-  	});
   });
 };
 
