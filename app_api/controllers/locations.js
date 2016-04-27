@@ -87,12 +87,13 @@ module.exports.locationsListByDistance = function (req, res) {
 
   var geoOptions = {
   	spherical: true,
+  	maxDistance: theEarth.getRadsFromDistance(20),
   	num: 10
   };
   var point = {
   	type: "Point",
   	coordinates: [lng, lat]
   };
-  Loc.geoNear(point, options, callback);
+  Loc.geoNear(point, geoOptions, callback);
 };
 
