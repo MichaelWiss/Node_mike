@@ -87,6 +87,18 @@ module.exports.locationInfo = function(req, res) {
     });
 };
 
+var renderHomepage = function(req, res, responseBody){
+    res.render('locations-list', {
+        title: 'Loc8r - find a place to work with wifi',
+        pageHeader: {
+            title: 'Loc8r',
+            strapline: 'Find places to work with wifi near you!'
+        },
+        sidebar: "Looking for wifi and a seat? Loc8r helps you find places towork when out and about.  Perhaps with coffee, cake or pint? Let Loc8 help you find the place you're looking for.",
+        locations: responseBody
+    });
+};
+
 /* GET 'Add review page' */
 module.exports.addReview = function(req, res){
 	 res.render('location-review-form', { title: 'Add review'});
