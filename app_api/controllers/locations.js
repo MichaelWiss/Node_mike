@@ -22,6 +22,63 @@ var theEarth = (function(){
 	};
 }) ();
 
+/* GET list of locations */
+
+module.exports.locationsListByDistance = function (req, res) {
+  var lng = parseFloat(req.query.lng);
+  var lat = parseFloat(req.query.lat);
+
+  var geoOptions = {
+  	spherical: true,
+  	maxDistance: theEarth.getRadsFromDistance(20),
+  	num: 10
+  };
+  var point = {
+  	type: "Point",
+  	coordinates: [lng, lat]
+  };
+  if (!lng || !lat) {
+  	sendJSONresponse(res, 404, {
+  		"message": "lng and lat query parameters are required"
+  	});
+  	return;
+  }
+  Loc.geoNear(point, geoOptions, function (err, results, stats){
+    var locations = [];
+    if (err) {
+    	sendJSONresponse(res, 404, err);
+    } else {
+    results.forEach(function(doc) {
+    	locations.push({
+          distance: theEarth.getDistanceFromRads(doc.dis),
+          name: doc.obj.name,
+          address: doc.obj.name,
+          rating: doc.obj.rating,
+          facilities: doc.obj.facilities,
+          _id: doc.obj._id
+      });
+    });
+    sendJSONresponse(res,200, locations);
+   }
+ });
+};
+
+var buildLocationList = function(req, res, results, stats) {
+  var locations = [];
+  results.forEach(function(doc) {
+    locations.push({
+      distance: theEarth.getDistanceFromRads(doc.dis),
+      name: doc.obj.name,
+      address: doc.obj.address,
+      rating: doc.obj.rating,
+      facilities: doc.obj.facilities,
+      _id: doc.obj._id
+    });
+  });
+  return locations;
+};
+
+
 module.exports.locationsCreate = function (req, res) {
   Loc.create({
   		name: req.body.name,
@@ -151,44 +208,5 @@ module.exports.locationsDeleteOne = function (req, res) {
   		"message": "No locationid"
   	});
   }
-};
-
-module.exports.locationsListByDistance = function (req, res) {
-  var lng = parseFloat(req.query.lng);
-  var lat = parseFloat(req.query.lat);
-
-  var geoOptions = {
-  	spherical: true,
-  	maxDistance: theEarth.getRadsFromDistance(20),
-  	num: 10
-  };
-  var point = {
-  	type: "Point",
-  	coordinates: [lng, lat]
-  };
-  if (!lng || !lat) {
-  	sendJSONresponse(res, 404, {
-  		"message": "lng and lat query parameters are required"
-  	});
-  	return;
-  }
-  Loc.geoNear(point, geoOptions, function (err, results, stats){
-    var locations = [];
-    if (err) {
-    	sendJSONresponse(res, 404, err);
-    } else {
-    results.forEach(function(doc) {
-    	locations.push({
-          distance: theEarth.getDistanceFromRads(doc.dis),
-          name: doc.obj.name,
-          address: doc.obj.name,
-          rating: doc.obj.rating,
-          facilities: doc.obj.facilities,
-          _id: doc.obj._id
-      });
-    });
-    sendJSONresponse(res,200, locations);
-   }
- });
 };
 
