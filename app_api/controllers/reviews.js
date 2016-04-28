@@ -155,11 +155,35 @@ module.exports.reviewsCreate = function (req, res) {
  	   	   			return;
  	   	   		}
  	   	   		if (locationid.reviews && location.reviews.length >0) {
- 	   	   			review = location
+ 	   	   			review = location.reviews.id(req.params.reviewid);
+                    if (!review) {
+                      sendJSONresponse(res, 404, {
+                      	"message": "reviewid not found"
+                      });
+                    } else {
+                    	response = {
+                    		location : {
+                    			name : locations.name,
+                    			id : req.params.locationid
+                    		},
+                    		review : review
+                    	};
+                    	sendJSONresponse(res, 200, response);
+                    }
+ 	   	   		} else {
+ 	   	   		  sendJSONresponse(res, 404, {
+ 	   	   		  	"message": "No reviews found"
+ 	   	   		  });
  	   	   		}
- 	   	   	})
+ 	   	   	}
+ 	   	  );
+ 	   } else {
+ 	   	sendJSONresponse(res, 404, {
+ 	   		"message": "Not found, locationid and reviewid are both required"
+ 	   	 });
  	   }
- };
+ 	};
+
 
  
 
