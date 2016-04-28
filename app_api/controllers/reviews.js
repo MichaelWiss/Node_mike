@@ -144,22 +144,26 @@ module.exports.reviewsCreate = function (req, res) {
  
 
  module.exports.reviewsDeleteOne = function (req, res) {
-    var locationid = req.params.locationid;
-    if (locationid) {
-    	Loc
-    	.findByIdAndRemove(locationid)
-    	.exec(
-    		function(err, location) {
-    			if (err) {
-    				sendJSONresponse(res, 404, err);
-    				return;
-    			}
-    			sendJSONresponse(res, 204, null);
-    		    }
-    		);
-    } else {
-    	sendJSONresponse(res, 404, {
-    		"message": "No locationid"
-    	});
-    }
- };
+   if (!req.params.locationid || !req.params.reviewid) {
+  	 sendJSONresponse(res, 404, {
+  		"message": "Not found, locationid and reviewid are both required"
+  	 });
+  	 return;
+  }
+  Loc
+     .findById(req.params.locationid)
+     .select('reviews')
+     .exec(
+     	function(err, location) {
+     		if (!location) {
+     			
+     		}
+     	})
+
+
+
+
+
+
+
+
