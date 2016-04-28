@@ -138,7 +138,27 @@ module.exports.reviewsCreate = function (req, res) {
         };
 
   module.exports.reviewsReadOne = function (req, res) {
- 	   sendJSONresponse(res, 200, {"status" : "success"});
+ 	   if (req.params && req.params.locationid && req.params.reviewid) {
+ 	   	Loc
+ 	   	   .findById(req.params.locationid)
+ 	   	   .select('name reviews')
+ 	   	   .exec(
+ 	   	   	function(err, location) {
+ 	   	   		var response, review;
+ 	   	   		if (!location) {
+ 	   	   			sendJSONresponse(res, 404, {
+ 	   	   				"message": "locationid not found"
+ 	   	   			});
+ 	   	   			return;
+ 	   	   		} else if (err) {
+ 	   	   			sendJSONresponse(res, 400, err);
+ 	   	   			return;
+ 	   	   		}
+ 	   	   		if (locationid.reviews && location.reviews.length >0) {
+ 	   	   			review = location
+ 	   	   		}
+ 	   	   	})
+ 	   }
  };
 
  

@@ -113,6 +113,8 @@ module.exports.locationsReadOne = function (req, res) {
      .exec(
        function(err, location) {
        	var response, review;
+       	/* bug? */
+       review = location.reviews.id(req.params.reviewid);
        if (!location) {
      	sendJSONresponse(res, 404, {
      		"message": "locationid not found"
