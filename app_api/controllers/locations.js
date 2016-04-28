@@ -95,7 +95,7 @@ module.exports.locationsReadOne = function (req, res) {
   }
 };
 
-module.exports.locationsUpdateOne = function (req, res) {
+module.exports.locationsUpdateOne = function(req, res) {
   if (!req.params.locationid) {
   	sendJSONresponse(res, 404, {
   		"message": "Not found, locationid is required"
@@ -128,6 +128,7 @@ module.exports.locationsUpdateOne = function (req, res) {
     				sendJSONresponse(res, 200, location);
     			}
     		});
+    	  }
     	);
 };
 
