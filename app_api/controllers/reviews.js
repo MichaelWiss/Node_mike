@@ -144,5 +144,8 @@ module.exports.reviewsCreate = function (req, res) {
  
 
  module.exports.reviewsDeleteOne = function (req, res) {
-    sendJSONresponse(res, 200, {"status" : "success"});
+    var locationid = req.params.locationid;
+    if (locationid) {
+    	Loc
+    }
  };
