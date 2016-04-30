@@ -16,5 +16,6 @@ block content
           a(href="/location")= location.name
          h3
           a.button.large.expanded= location.distance
-        
-          p.address= location.address
+                     
+                      .medium-6.columns {{ location.distance | formatDistance }}
+          p.address {{ location.address }}
