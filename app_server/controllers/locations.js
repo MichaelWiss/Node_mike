@@ -144,7 +144,7 @@ module.exports.homelist = function(req, res){
             unit = 'm';
         }
         return numDistance + unit;
-    }
+    };
 };
 
 /* GET 'Add review page' */
