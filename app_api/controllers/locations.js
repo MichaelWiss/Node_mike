@@ -170,7 +170,7 @@ module.exports.locationsUpdateOne = function(req, res) {
     .exec(
     	function(err, location) {
     		if (!location) {
-    			sendJSONresponse(res, 400, err);
+    			sendJSONresponse(res, 400);
     			return;
     		} else if (err) {
     			sendJSONresponse(res, 400, err);
