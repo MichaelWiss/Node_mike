@@ -1,5 +1,7 @@
 extends layout
 
+include _includes/sharedHTMLfunctions
+
 block content
   #banner.page-header
     .row
@@ -17,6 +19,7 @@ block content
             span.badge.float-right location.distance
             p
               | location address
+            span"#{location.address}"
             p
               | each facility in facilities
             p
