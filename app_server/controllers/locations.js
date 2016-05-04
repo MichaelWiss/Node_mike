@@ -131,7 +131,7 @@ module.exports.homelist = function(req, res){
                 data[i].distance = _formatDistance(data[i].distance);
             }
            }
-            renderHomepage(req, res, body);
+            renderHomepage(req, res, data);
         }
     );
     var _formatDistance = function (distance) {
