@@ -53,7 +53,7 @@ module.exports.locationsListByDistance = function (req, res) {
     	locations.push({
           distance: theEarth.getDistanceFromRads(doc.dis),
           name: doc.obj.name,
-          address: doc.obj.name,
+          address: doc.obj.address,
           rating: doc.obj.rating,
           facilities: doc.obj.facilities,
           _id: doc.obj._id
@@ -112,8 +112,10 @@ module.exports.locationsReadOne = function (req, res) {
   Loc
      .findById(req.params.locationid)
      .select('name reviews')
-     .exec(function(err, location) {
-      
+     .exec(
+      function(err, location) {
+        var review;
+
        	/* bug? */
      
        if (!location) {
