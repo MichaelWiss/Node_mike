@@ -107,7 +107,8 @@ module.exports.locationsCreate = function (req, res) {
 };
 
 module.exports.locationsReadOne = function (req, res) {
- if (req.params && req.params.locationid) {
+ console.log('Finding location details', req.params);
+ if (req.params && req.params.locationid && req.params.reviewid) {
   Loc
      .findById(req.params.locationid)
      .select('name reviews')
@@ -115,8 +116,7 @@ module.exports.locationsReadOne = function (req, res) {
        function(err, location) {
        	var response, review;
        	/* bug? */
-       review = location.reviews.id(req.params.reviewid);
-       if (!location) {
+     if (!location) {
      	sendJSONresponse(res, 404, {
      		"message": "locationid not found"
      	});
