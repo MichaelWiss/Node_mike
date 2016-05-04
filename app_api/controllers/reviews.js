@@ -15,7 +15,7 @@ module.exports.reviewsCreate = function (req, res) {
     	   .select('review')
     	   .exec(
     	   	function(err, location) {
-    	   		if (err, location) {
+    	   		if (err) {
     	   			sendJSONresponse(res, 400, err);
     	   		} else {
     	   			doAddReview(req, res, location);
@@ -181,7 +181,7 @@ module.exports.reviewsCreate = function (req, res) {
  	   	sendJSONresponse(res, 404, {
  	   		"message": "Not found, locationid and reviewid are both required"
  	   	 });
- 	   }
+ 	    }
  	};
 
 
