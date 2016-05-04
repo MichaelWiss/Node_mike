@@ -6,21 +6,19 @@ block content
       .medium-6.columns
         h1= pageHeader.title
         small &nbsp;#{pageHeader.strapline}
-<div class="row">
-  <div class="small-8 medium-8 large-8 list-group-item">list-group-item</div>
-      <div class="row list-group">
-       each location in locations
-       <div class="small-12 list group item">
-        <h4>
-          location name
-          location rating
-          location distance
-        <p>  location address
-        <p>
-         each facility in facilities
+   .row
+      .small-8.medium-8.large-8.list-group-item list-group-item
+      .row.list-group
+        | each location in locations
+        .small-12.list.group.item
+          h4
+            
+            | +outputRating(location.rating)
+            span.badge.float-right location.distance
+            p
+              | location address
+            p
+              | each facility in facilities
+        p lead
 
-  </div class="small-4 medium-4 large-4 lead">
-    <p>lead</p>
-  </div>
-</div>
          
