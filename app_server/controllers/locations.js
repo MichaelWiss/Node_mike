@@ -23,7 +23,8 @@ var renderHomepage = function(req, res, responseBody){
             strapline: 'Find places to work with wifi near you!'
         },
         sidebar: "Looking for wifi and a seat? Loc8r helps you find places towork when out and about.  Perhaps with coffee, cake or pint? Let Loc8 help you find the place you're looking for.",
-        locations: responseBody
+        locations: responseBody,
+        message: message
     });
 };
 
