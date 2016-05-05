@@ -9,7 +9,8 @@ block content
         h1= pageHeader.title
         small &nbsp;#{pageHeader.strapline}
    .row
-      .small-8.medium-8.large-8.list-group-item 
+      .small-8.medium-8.large-8.list-group-item
+      .error= message 
       .row.list-group
         each location in locations
          .small-12.list.group.item
@@ -17,8 +18,7 @@ block content
               a(href="/location/#{location._id}")= location.name
             +outputRating(location.rating)
             span.badge.float-right location.distance
-            p
-              | location address
+               p.address= location.address
             span location.address 
             p
               | each facility in facilities
