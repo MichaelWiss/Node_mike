@@ -54,18 +54,47 @@ module.exports.homelist = function(req, res){
             renderHomepage(req, res, data);
         }
     );
-    var _formatDistance = function (distance) {
-        var numDistance, unit;
-        if (distance >1) {
-            numDistance = parseFloat(distance).toFixed(1);
-            unit = 'km';
-        } else {
-            numDistance = parseInt(distance * 1000,10);
-            unit = 'm';
-        }
-        return numDistance + unit;
-    };
 };
+
+var getLocationInfo = function (req, res, callback) {
+  var requestOptions, path;
+  path = "/api/locations/" + req.params.locationid;
+  requestOptions = {
+    url : apiOptions.server + path,
+    method : "GET",
+    json : {}
+  };
+  request(
+    requestOptions,
+    function(err, response, body) {
+      var data = body;
+      if (response.statusCode === 200) {
+        data.coords = {
+          lng : body.coords[0],
+          lat : body.coords[1]
+        };
+        callback(req, res, data);
+      } else {
+        _showError(req, res, response.statusCode);
+      }
+    }
+  );
+};
+var _formatDistance = function (distance) {
+    var numDistance, unit;
+    if (distance && _isNumeric(distance)) {
+     if (distance > 1) {
+      numDistance = parseFloat(distance).toFixed(1);
+      unit = 'km';
+    } else {
+      numDistance = parseInt(distance * 1000,10);
+      unit = 'm';
+    }
+    return numDistance + unit; 
+} else {
+    return "?";
+  }
+ };
 
 /* GET 'Add review page' */
 module.exports.addReview = function(req, res){
