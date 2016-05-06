@@ -28,10 +28,7 @@ module.exports.locationsListByDistance = function (req, res) {
   var lng = parseFloat(req.query.lng);
   var lat = parseFloat(req.query.lat);
 
-  var point = {
-  	type: "Point",
-  	coordinates: [lng, lat]
-  };
+ 
   var geoOptions = {
   	spherical: true,
   	maxDistance: theEarth.getRadsFromDistance(20),
@@ -44,7 +41,9 @@ module.exports.locationsListByDistance = function (req, res) {
   	});
   	return;
   }
-  Loc.geoNear(point, geoOptions, function (err, results, stats) {
+
+  var coordinates = [lng, lat];
+  Loc.geoNear(coordinates, geoOptions, function (err, results, stats) {
     var locations = [];
     console.log('Geo Results', results);
     console.log('Geo stats', stats);
@@ -75,6 +74,7 @@ var buildLocationList = function(req, res, results, stats) {
 
 
 module.exports.locationsCreate = function (req, res) {
+  console.log(req.body);
   Loc.create({
   		name: req.body.name,
   		address: req.body.address,
