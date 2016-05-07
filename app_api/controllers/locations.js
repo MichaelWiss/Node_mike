@@ -150,7 +150,7 @@ module.exports.locationsUpdateOne = function(req, res) {
     .exec(
     	function(err, location) {
     		if (!location) {
-    			sendJSONresponse(res, 404; {
+    			sendJSONresponse(res, 404, {
             "message": "locationid not found"
           });
     			return;
