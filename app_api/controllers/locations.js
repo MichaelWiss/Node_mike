@@ -48,7 +48,7 @@ module.exports.locationsListByDistance = function (req, res) {
   }
 
   var coordinates = [lng, lat];
-  Loc.geoNear(coordinates, geoOptions, function (err, results, stats) {
+  Loc.geoNear(point, geoOptions, function (err, results, stats) {
     var locations = [];
     console.log('Geo Results', results);
     console.log('Geo stats', stats);
@@ -117,10 +117,10 @@ module.exports.locationsReadOne = function (req, res) {
        	/* bug? */
      
        if (!location) {
-     	sendJSONresponse(res, 404, {
-     		"message": "locationid not found"
-     	});
-     	return;
+     	    sendJSONresponse(res, 404, {
+     		     "message": "locationid not found"
+     	  });
+     	   return;
      } else if (err) {
       console.log(err);
      	sendJSONresponse(res, 404, err);
@@ -150,7 +150,9 @@ module.exports.locationsUpdateOne = function(req, res) {
     .exec(
     	function(err, location) {
     		if (!location) {
-    			sendJSONresponse(res, 400);
+    			sendJSONresponse(res, 404; {
+            "message": "locationid not found"
+          });
     			return;
     		} else if (err) {
     			sendJSONresponse(res, 400, err);
