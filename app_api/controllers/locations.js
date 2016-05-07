@@ -8,6 +8,7 @@ var sendJSONresponse = function(res, status, content) {
 
 var theEarth = (function(){
 	var earthRadius = 3959; //km is 6371
+
 	var getDistanceFromRads = function(rads) {
 		return parseFloat(rads * earthRadius);
 	};
@@ -38,7 +39,8 @@ module.exports.locationsListByDistance = function (req, res) {
   	num: 10
   };
  
-  if (!lng || !lat) {
+  if ((!lng && lng!==0) || (!lat && lat!==0) || ! maxDistance) {
+    console.log('locationsListByDistance missing params');
   	sendJSONresponse(res, 404, {
   		"message": "lng and lat query parameters are required"
   	});
