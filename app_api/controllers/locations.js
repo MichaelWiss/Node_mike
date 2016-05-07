@@ -27,8 +27,11 @@ var theEarth = (function(){
 module.exports.locationsListByDistance = function (req, res) {
   var lng = parseFloat(req.query.lng);
   var lat = parseFloat(req.query.lat);
-
- 
+  var maxDistance = parseFloat(req.query.maxDistance);
+  var point = {
+  	type: "Point",
+  	coordinates: [lng, lat]
+  };
   var geoOptions = {
   	spherical: true,
   	maxDistance: theEarth.getRadsFromDistance(20),
@@ -102,10 +105,9 @@ module.exports.locationsCreate = function (req, res) {
 
 module.exports.locationsReadOne = function (req, res) {
  console.log('Finding location details', req.params);
- if (req.params && req.params.locationid && req.params.reviewid) {
+ if (req.params && req.params.locationid) {
   Loc
      .findById(req.params.locationid)
-     .select('name reviews')
      .exec(
       function(err, location) {
         var review;
@@ -118,35 +120,17 @@ module.exports.locationsReadOne = function (req, res) {
      	});
      	return;
      } else if (err) {
-     	sendJSONresponse(res, 404, location);
+      console.log(err);
+     	sendJSONresponse(res, 404, err);
      	return;
-     }
-     if (location.reviews && location.reviews.length > 0) {
-     	review = location.reviews.id(req.params.reviewid);
-     	if (!review) {
-     	  sendJSONresponse(res, 404, {
-     	  	"message": "reviewid not found"
-     	  });
-     	} else {
-     	  response = {
-     	  	location : {
-     	  		name: location.name,
-     	  		id : req.params.locationid
-     	  	   },
-     	  	   review : review
-     	    };
-     	    sendJSONresponse(res, 200, response);
-     	}
-     } else {
-     sendJSONresponse(res, 404, {
-     	"message": "No reviews found"
+     } 
+     console.log(location);
+     sendJSONresponse(res, 200, location);
      });
-    }
-   }
-  );
-} else {
-	sendJSONresponse(res, 404, {
-		"message": "Not found, locationid and reviewid are both required"
+   } else {
+        console.log("no locationid specified");
+     	  sendJSONresponse(res, 404, {
+     	  	"message": "No locationid in request"
 	});
   }
 };
