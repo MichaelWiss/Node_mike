@@ -195,6 +195,7 @@ module.exports.locationsDeleteOne = function (req, res) {
   	  			sendJSONresponse(res, 404, err);
   	  			return;
   	  		}
+          console.log("Location id " + locationid + " deleted");
   	  		sendJSONresponse(res, 204, null);
   	  	}
   	  );
