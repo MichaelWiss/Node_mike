@@ -54,6 +54,7 @@ module.exports.reviewsCreate = function (req, res) {
  };
 
  var updateAverageRating = function(locationid) {
+ 	console.log("Update rating average for", locationid);
  	Loc
  	   .findById(locationId)
  	   .select('rating reviews')
