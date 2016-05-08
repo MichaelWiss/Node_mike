@@ -56,7 +56,7 @@ module.exports.reviewsCreate = function (req, res) {
  var updateAverageRating = function(locationid) {
  	console.log("Update rating average for", locationid);
  	Loc
- 	   .findById(locationId)
+ 	   .findById(locationid)
  	   .select('rating reviews')
  	   .exec(
  	   	function(err, location) {
@@ -72,7 +72,7 @@ module.exports.reviewsCreate = function (req, res) {
  		reviewCount = location.reviews.length;
  		ratingTotal = 0;
  		for (i = 0; i < reviewCount; i++) {
- 			ratingTotal = ratingTotal + locationreviews[i].rating;
+ 			ratingTotal = ratingTotal + location.reviews[i].rating;
  		}
  		ratingAverage = parseInt(ratingTotal / reviewCount, 10);
  		location.rating = ratingAverage;
@@ -139,6 +139,7 @@ module.exports.reviewsCreate = function (req, res) {
         };
 
   module.exports.reviewsReadOne = function (req, res) {
+  	   console.log("Getting single review");
  	   if (req.params && req.params.locationid && req.params.reviewid) {
  	   	Loc
  	   	   .findById(req.params.locationid)
