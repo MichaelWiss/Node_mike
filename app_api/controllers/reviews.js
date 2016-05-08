@@ -146,6 +146,7 @@ module.exports.reviewsCreate = function (req, res) {
  	   	   .select('name reviews')
  	   	   .exec(
  	   	   	function(err, location) {
+ 	   	   		console.log(location);
  	   	   		var response, review;
  	   	   		if (!location) {
  	   	   			sendJSONresponse(res, 404, {
