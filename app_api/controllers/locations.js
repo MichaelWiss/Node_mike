@@ -21,7 +21,7 @@ var theEarth = (function() {
 		getDistanceFromRads : getDistanceFromRads,
 		getRadsFromDistance : getRadsFromDistance
 	};
-}) ();
+})();
 
 /* GET list of locations */
 
@@ -48,8 +48,8 @@ module.exports.locationsListByDistance = function(req, res) {
   }
 
   var coordinates = [lng, lat];
-  Loc.geoNear(coordinates, geoOptions, function (err, results, stats) {
-    var locations = [];
+  Loc.geoNear(point, geoOptions, function(err, results, stats) {
+    var locations;
     console.log('Geo Results', results);
     console.log('Geo stats', stats);
     if (err) {
