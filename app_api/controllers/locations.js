@@ -14,7 +14,7 @@ var theEarth = (function(){
 	};
 
 	var getRadsFromDistance = function(distance) {
-		return parseFloat(distance /earthRadius);
+		return parseFloat(distance / earthRadius);
 	};
 
 	return {
@@ -25,7 +25,7 @@ var theEarth = (function(){
 
 /* GET list of locations */
 
-module.exports.locationsListByDistance = function (req, res) {
+module.exports.locationsListByDistance = function(req, res) {
   var lng = parseFloat(req.query.lng);
   var lat = parseFloat(req.query.lat);
   var maxDistance = parseFloat(req.query.maxDistance);
@@ -48,7 +48,7 @@ module.exports.locationsListByDistance = function (req, res) {
   }
 
   var coordinates = [lng, lat];
-  Loc.geoNear(point, geoOptions, function (err, results, stats) {
+  Loc.geoNear(point, geoOptions, function(err, results, stats) {
     var locations = [];
     console.log('Geo Results', results);
     console.log('Geo stats', stats);
