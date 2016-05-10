@@ -6,6 +6,10 @@ if (process.env.NODE_ENV ==='production') {
     apiOptions.server = "https://secret-sea-46368.herokuapp.com/";
 }
 
+var _isNumeric = function (n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+};
+
 var _formatDistance = function (distance) {
     var numDistance, unit;
     if (distance && _isNumeric(distance)) {
