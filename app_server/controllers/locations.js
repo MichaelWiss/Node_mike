@@ -6,6 +6,23 @@ if (process.env.NODE_ENV ==='production') {
     apiOptions.server = "https://secret-sea-46368.herokuapp.com/";
 }
 
+var _formatDistance = function (distance) {
+    var numDistance, unit;
+    if (distance && _isNumeric(distance)) {
+     if (distance > 1) {
+      numDistance = parseFloat(distance).toFixed(1);
+      unit = 'km';
+    } else {
+      numDistance = parseInt(distance * 1000,10);
+      unit = 'm';
+    }
+    return numDistance + unit; 
+} else {
+    return "?";
+  }
+ };
+
+
 var renderHomepage = function(req, res, responseBody){
     var message;
     if (!(responseBody instanceof Array)) {
@@ -27,7 +44,7 @@ var renderHomepage = function(req, res, responseBody){
         message: message
     });
 };
-
+/* GET 'home' page */
 module.exports.homelist = function(req, res){
     var requestOptions, path;
     path = '/api/locations';
@@ -56,7 +73,7 @@ module.exports.homelist = function(req, res){
     );
 };
 
-var getLocationInfo = function (req, res, callback) {
+var getLocationInfo = function(req, res, callback) {
   var requestOptions, path;
   path = "/api/locations/" + req.params.locationid;
   requestOptions = {
@@ -80,21 +97,7 @@ var getLocationInfo = function (req, res, callback) {
     }
   );
 };
-var _formatDistance = function (distance) {
-    var numDistance, unit;
-    if (distance && _isNumeric(distance)) {
-     if (distance > 1) {
-      numDistance = parseFloat(distance).toFixed(1);
-      unit = 'km';
-    } else {
-      numDistance = parseInt(distance * 1000,10);
-      unit = 'm';
-    }
-    return numDistance + unit; 
-} else {
-    return "?";
-  }
- };
+
 
 /* GET 'Add review page' */
 module.exports.addReview = function(req, res){
