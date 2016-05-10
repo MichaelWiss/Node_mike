@@ -6,7 +6,7 @@ var sendJSONresponse = function(res, status, content) {
 	res.json(content);
 };
 
-var theEarth = (function(){
+var theEarth = (function() {
 	var earthRadius = 3959; //km is 6371
 
 	var getDistanceFromRads = function(rads) {
@@ -48,7 +48,7 @@ module.exports.locationsListByDistance = function(req, res) {
   }
 
   var coordinates = [lng, lat];
-  Loc.geoNear(point, geoOptions, function (err, results, stats) {
+  Loc.geoNear(coordinates, geoOptions, function (err, results, stats) {
     var locations = [];
     console.log('Geo Results', results);
     console.log('Geo stats', stats);
