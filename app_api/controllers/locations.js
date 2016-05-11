@@ -52,13 +52,13 @@ module.exports.locationsListByDistance = function(req, res) {
     var locations;
     console.log('Geo Results', results);
     console.log('Geo stats', stats);
-    console.log('locations:', locations);
-    if (err) {
+  if (err) {
       console.log('geoNear error:', err);
     	sendJSONresponse(res, 404, err);
      } else {
       locations = buildLocationList(req, res, results, stats);
       sendJSONresponse(res, 200, locations);
+      console.log('locations:', locations);
    }
  });
 };
