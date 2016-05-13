@@ -74,7 +74,7 @@ var buildLocationList = function(req, res, results, stats) {
       facilities: doc.obj.facilities,
       _id: doc.obj._id
     });
-     console.log('locations:', locations);
+     
   });
   console.log('locations:', locations);
   return locations;
