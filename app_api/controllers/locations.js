@@ -76,7 +76,7 @@ var buildLocationList = function(req, res, results, stats) {
     });
      console.log('locations:', locations);
   });
-  console.log('locations:', locations);
+  
   return locations;
 };
 
