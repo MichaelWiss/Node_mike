@@ -110,7 +110,7 @@ module.exports.locationsCreate = function (req, res) {
   });
 };
 /* Get a location by the id */
-module.exports.locationsReadOne = function (req, res) {
+module.exports.locationsReadOne = function(req, res) {
  console.log('Finding location details', req.params);
  if (req.params && req.params.locationid) {
   Loc
