@@ -107,14 +107,13 @@ module.exports.locationsCreate = function (req, res) {
       	}
   });
 };
-
+/* Get a location by the id */
 module.exports.locationsReadOne = function (req, res) {
  console.log('Finding location details', req.params);
  if (req.params && req.params.locationid) {
   Loc
      .findById(req.params.locationid)
-     .exec(
-      function(err, location) {
+     .exec(function(err, location) {
         var review;
 
        	/* bug? */
