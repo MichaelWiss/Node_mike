@@ -183,11 +183,11 @@ module.exports.locationsUpdateOne = function(req, res) {
     				sendJSONresponse(res, 200, location);
     			}
     		});
-    	  }
-    	);
+    	}
+  );
 };
 
-module.exports.locationsDeleteOne = function (req, res) {
+module.exports.locationsDeleteOne = function(req, res) {
   var locationid = req.params.locationid;
   if (locationid) {
   	Loc
