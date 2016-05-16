@@ -90,7 +90,7 @@ module.exports.locationsCreate = function (req, res) {
   		coords: [parseFloat(req.body.lng), parseFloat(req.body.lat)],
   		openingTimes: [{
   			days: req.body.days1,
-  			opening: req.bodyopening1,
+  			opening: req.body.opening1,
   			closing: req.body.closing1,
   			closed: req.bosy.closed1,
   		}, {
@@ -101,8 +101,10 @@ module.exports.locationsCreate = function (req, res) {
   		}]
       }, function(err, location) {
       	if (err) {
+          console.log(err);
       		sendJSONresponse(res, 400, err);
       	} else {
+            console.log(location);
       	    sendJSONresponse(res, 201, location);
       	}
   });
