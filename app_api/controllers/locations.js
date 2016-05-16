@@ -24,7 +24,6 @@ var theEarth = (function() {
 })();
 
 /* GET list of locations */
-
 module.exports.locationsListByDistance = function(req, res) {
   var lng = parseFloat(req.query.lng);
   var lat = parseFloat(req.query.lat);
@@ -137,8 +136,8 @@ module.exports.locationsReadOne = function(req, res) {
         console.log("no locationid specified");
      	  sendJSONresponse(res, 404, {
      	  	"message": "No locationid in request"
-	});
-  }
+	      });
+    }
 };
 
 module.exports.locationsUpdateOne = function(req, res) {
@@ -164,7 +163,7 @@ module.exports.locationsUpdateOne = function(req, res) {
     		}
     		location.name = req.body.name;
     		location.address = req.body.address;
-    		location.facilities.split(",");
+    		location.facilities. req.body.facilities.split(",");
     		location.coords = [parseFloat(req.body.lng), parseFloat(req.body.lat)];
     		location.openingTimes = [{
     			days: req.body.days1,
