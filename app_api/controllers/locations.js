@@ -45,7 +45,6 @@ module.exports.locationsListByDistance = function(req, res) {
   	});
   	return;
   }
-
   var coordinates = [lng, lat];
   Loc.geoNear(point, geoOptions, function(err, results, stats) {
     var locations;
@@ -82,6 +81,7 @@ var buildLocationList = function(req, res, results, stats) {
 
 module.exports.locationsCreate = function (req, res) {
   console.log(req.body);
+  console.log(req.body.name);
   Loc.create({
   		name: req.body.name,
   		address: req.body.address,
