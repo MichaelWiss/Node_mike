@@ -115,7 +115,7 @@ module.exports.locationsReadOne = function(req, res) {
   Loc
      .findById(req.params.locationid)
      .exec(function(err, location) {
-        var review;
+        /* var review; */
 
        	/* bug? */
      
