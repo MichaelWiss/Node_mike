@@ -34,7 +34,7 @@ module.exports.locationsListByDistance = function(req, res) {
   };
   var geoOptions = {
   	spherical: true,
-  	maxDistance: theEarth.getRadsFromDistance(20),
+  	maxDistance: theEarth.getRadsFromDistance(100),
   	num: 10
   };
  
@@ -50,6 +50,7 @@ module.exports.locationsListByDistance = function(req, res) {
     var locations;
     console.log('Geo Results', results);
     console.log('Geo stats', stats);
+    console.log(res);
   if (err) {
       console.log('geoNear error:', err);
     	sendJSONresponse(res, 404, err);
