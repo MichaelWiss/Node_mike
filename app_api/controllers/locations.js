@@ -51,6 +51,7 @@ module.exports.locationsListByDistance = function(req, res) {
     console.log('Geo Results', results);
     console.log('Geo stats', stats);
     console.log(res);
+    console.log(req);
   if (err) {
       console.log('geoNear error:', err);
     	sendJSONresponse(res, 404, err);
