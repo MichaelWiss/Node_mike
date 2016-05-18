@@ -21,7 +21,7 @@ var _formatDistance = function(distance) {
       unit = 'm';
     }
     return numDistance + unit; 
-} else {
+   } else {
     return "?";
   }
  };
@@ -121,6 +121,18 @@ var getLocationInfo = function(req, res, callback) {
   );
 };
 
+
+var renderDetailPage = function (req, res) {
+  res.render('location-info', {
+    title: locDetail.name,
+    pageHeader: {title: locDetail.name},
+    sidebar: {
+      context: 'is on Loc8r because it has accessible wifi and space to sit down with your laptop and get some work done.',
+      callToAction: 'If you\'ve been and you like it - or if you don\'t - please leave a review to help other people just like you.'
+    },
+    location: locDetail
+  });
+};
 
 /* GET 'Add review page' */
 module.exports.addReview = function(req, res){
