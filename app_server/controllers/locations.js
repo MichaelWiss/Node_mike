@@ -122,7 +122,7 @@ var getLocationInfo = function(req, res, callback) {
 };
 
 
-var renderDetailPage = function (req, res) {
+var renderDetailPage = function (req, res, locDetail) {
   res.render('location-info', {
     title: locDetail.name,
     pageHeader: {title: locDetail.name},
@@ -133,6 +133,11 @@ var renderDetailPage = function (req, res) {
     location: locDetail
   });
 };
+
+module.exports.locationInfo = function(req, res){
+    var requestOptions, path;
+    path = "/api/locations/" + req.params.locationid;
+}
 
 /* GET 'Add review page' */
 module.exports.addReview = function(req, res){
