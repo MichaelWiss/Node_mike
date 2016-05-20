@@ -30,6 +30,9 @@ block content
                each facility in location.facilities
                <button class="warning hollow button">
               <p.class="callout secondary">
+               <i class="fi-star"></i>
+                 | &nbsp;#{facility}
+                | &nbsp;
 
 
            <div class="media-object">img.img-responsive.img-rounded(src="http://maps.googleapis.com/maps/api/staticmap?center=#{location.coords.lat},#{location.coords.lng}&zoom=17&size=400x350&sensor=false&markers=#{location.coords.lat},#{location.coords.lng}&scale=2")
