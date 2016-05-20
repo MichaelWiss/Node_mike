@@ -15,8 +15,9 @@ block content
             +outputRating(location.rating)
          <p class="location.address">
            <p class="callout secondary">
-             <h2 class="panel-title">Opening Hours>
-           <p class="panel-body">
+             <span class="warning label">
+             <h2 class="panel-title">Opening Hours</span>
+            <p class="panel-body">
              each time in location.openingTimes
                <p>
                   | #{time.days} : 
@@ -25,7 +26,9 @@ block content
                   else
                     | #{time.opening} - #{time.closing}
             <p class="callout secondary">
+            <span class="warning label">
              <h2 class="panel-title">Facilities</h2>
+            </span>
             <p class="panel-body">
                each facility in location.facilities
                <button class="warning hollow button">
@@ -36,7 +39,8 @@ block content
           <div class="small-12 medium-12 location-map">
     <div class="row">
       <div class="small-12 columns">
-         
+          <p class="location.address">
+           <p class="callout secondary">
 
 
 
