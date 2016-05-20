@@ -26,6 +26,8 @@ block content
                     | #{time.opening} - #{time.closing}
             <p class="callout secondary">
              <h2 class="panel-title">Facilities</h2>
+            <p class="panel-body">
+               each facility in location.facilities
 
 
            <div class="media-object">img.img-responsive.img-rounded(src="http://maps.googleapis.com/maps/api/staticmap?center=#{location.coords.lat},#{location.coords.lng}&zoom=17&size=400x350&sensor=false&markers=#{location.coords.lat},#{location.coords.lng}&scale=2")
