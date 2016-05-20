@@ -8,9 +8,17 @@ block content
      </div>
     </div>
     <div class="row">
-     <div class="small-4 columns"><h1>pageHeader.title</h1></div>
-     <div class="small-4 columns"><div class="media-object">img.img-responsive.img-rounded(src="http://maps.googleapis.com/maps/api/staticmap?center=#{location.coords.lat},#{location.coords.lng}&zoom=17&size=400x350&sensor=false&markers=#{location.coords.lat},#{location.coords.lng}&scale=2")
-     </div>
+     <div class="small-12 columns"><h1>pageHeader.title</h1></div>
+     <div class="small-12 columns">
+     <div class="small-4 columns">
+         <p class="rating">
+            +outputRating(location.rating)
+         <p class="location.address">
+           <p class="callout secondary">
+             <h2 class="panel-title">Opening Hours>
+
+           <div class="media-object">img.img-responsive.img-rounded(src="http://maps.googleapis.com/maps/api/staticmap?center=#{location.coords.lat},#{location.coords.lng}&zoom=17&size=400x350&sensor=false&markers=#{location.coords.lat},#{location.coords.lng}&scale=2")
+           </div>
      </div>
 
 
