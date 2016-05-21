@@ -26,7 +26,7 @@ var _formatDistance = function(distance) {
   }
  };
 
- var _showError = function(req, res, status) {
+ var _showError = function (req, res, status) {
   var title, content;
   if (status === 404) {
     title = "404, page not found";
@@ -96,7 +96,7 @@ module.exports.homelist = function(req, res){
     );
 };
 
-var getLocationInfo = function(req, res, callback) {
+var getLocationInfo = function (req, res, callback) {
   var requestOptions, path;
   path = "/api/locations/" + req.params.locationid;
   requestOptions = {
