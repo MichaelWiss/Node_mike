@@ -54,6 +54,15 @@ block content
                 <div class="callout secondary review-header">
                  <span class="rating">
                  +outputRating(review.rating)
+                 <span class="reviewAuthor">#{review.author}</span>
+
+                 +formatDate(review.createdOn)
+
+
+
+    .col-xs-12.col-md-3
+      p.lead #{location.name} #{sidebar.context}
+      p= sidebar.callToAction
 
 
 
