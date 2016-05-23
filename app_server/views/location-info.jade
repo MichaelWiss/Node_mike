@@ -9,16 +9,16 @@ block content
     </div>
 
 <div class="row">
-     <div class="small-12 columns">
+  <div class="small-12 columns">
            <h1>pageHeader.title</h1>
      </div>
          <p class="rating">
             +outputRating(location.rating)
-         <p class="location.address">
+          <p class="location.address">
            <p class="callout secondary">
-             <span class="warning label">
-             <h2 class="panel-title">Opening Hours</h2>
-             </span>
+              <span class="warning label">
+                <h2 class="panel-title">Opening Hours</h2>
+              </span>
             <p class="panel-body">
              each time in location.openingTimes
                <p>
@@ -27,9 +27,9 @@ block content
                     | closed
                   else
                     | #{time.opening} - #{time.closing}
-            <p class="callout secondary">
+                <p class="callout secondary">
             <span class="warning label">
-             <h2 class="panel-title">Facilities</h2>
+              <h2 class="panel-title">Facilities</h2>
             </span>
             <p class="panel-body">
                each facility in location.facilities
@@ -38,7 +38,7 @@ block content
                <i class="fi-star"></i>
                  | &nbsp;#{facility}
                 | &nbsp;
-          <div class="small-12 medium-12 location-map">
+          <div class="small-12 medium-12 location-map"></div>
 <div class="row">
       <div class="small-12 columns">
           <p class="location.address">
@@ -47,9 +47,9 @@ block content
           <h2 class="panel-title">Customer reviews</h2>
            <p class="panel-body review-container">
             each review in location.reviews
-       </div>
-    </div>
-   </div>
+      </div>
+</div>
+
 <div class="row">
               <div class="review">
                 <div class="callout secondary review-header">
