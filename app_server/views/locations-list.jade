@@ -8,23 +8,23 @@ block content
       .medium-6.columns
         h1= pageHeader.title
         small &nbsp;#{pageHeader.strapline}
-   .row
-      .small-8.medium-8.large-8.list-group-item
+  .row
+    .small-8.medium-8.large-8.list-group-item
       .error= message 
       .row.list-group
         each location in locations
-
          .small-12.list.group.item
           h4 
-              a(href="/location/#{location._id}")= location.name
-            +outputRating(location.rating)
-            span.badge.float-right location.distance
+            a(href="/location/#{location._id}")= location.name
+             small &nbsp;
+              +outputRating(location.rating)
+              span.badge.float-right= location.distance
                p.address= location.address
-            span location.address 
+               p
+              | each facility in location.facilities
             p
-              | each facility in facilities
-            p
-              | facility address 
-            p= sidebar
+              | facility address
+            .small-12 
+            p.lead= sidebar
 
          
