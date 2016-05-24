@@ -42,7 +42,7 @@ block content
             <div class="panel-heading">
                <h2 class="panel-title">Location map</h2>
                  <div class="callout secondary">
-                   <div class="media-object">(src="http://maps.googleapis.com/maps/api/staticmap?center=#{location.coords.lat},#{location.coords.lng}&zoom=17&size=400x350&sensor=false&markers=#{location.coords.lat},#{location.coords.lng}&scale=2")</div>
+                   <div class="media-object">img.img-responsive.img-rounded(src="http://maps.googleapis.com/maps/api/staticmap?center=#{location.coords.lat},#{location.coords.lng}&zoom=17&size=400x350&sensor=false&markers=#{location.coords.lat},#{location.coords.lng}&scale=2")</div>
 <div class="row">
       <div class="small-12 columns">
           <p class="location.address">
@@ -53,7 +53,6 @@ block content
             each review in location.reviews
       </div>
 </div>
-
 <div class="row">
               <div class="review">
                 <div class="callout secondary review-header">
