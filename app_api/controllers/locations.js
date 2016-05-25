@@ -80,6 +80,38 @@ var buildLocationList = function(req, res, results, stats) {
   return locations;
 };
 
+/* Get a location by the id */
+module.exports.locationsReadOne = function(req, res) {
+ console.log('Finding location details', req.params);
+ if (req.params && req.params.locationid) {
+  Loc
+     .findById(req.params.locationid)
+     .exec(function(err, location) {
+        /* var review; */
+
+        /* bug? */
+     
+       if (!location) {
+          sendJSONresponse(res, 404, {
+             "message": "locationid not found"
+          });
+          return;
+          } else if (err) {
+            console.log(err);
+            sendJSONresponse(res, 404, err);
+            return;
+          } 
+          console.log(location);
+          sendJSONresponse(res, 200, location);
+         });
+     } else {
+        console.log("no locationid specified");
+        sendJSONresponse(res, 404, {
+          "message": "No locationid in request"
+        });
+    }
+};
+
 
 module.exports.locationsCreate = function (req, res) {
   console.log(req.body);
@@ -110,37 +142,7 @@ module.exports.locationsCreate = function (req, res) {
       	}
   });
 };
-/* Get a location by the id */
-module.exports.locationsReadOne = function(req, res) {
- console.log('Finding location details', req.params);
- if (req.params && req.params.locationid) {
-  Loc
-     .findById(req.params.locationid)
-     .exec(function(err, location) {
-        /* var review; */
 
-       	/* bug? */
-     
-       if (!location) {
-     	    sendJSONresponse(res, 404, {
-     		     "message": "locationid not found"
-     	    });
-     	    return;
-          } else if (err) {
-            console.log(err);
-     	      sendJSONresponse(res, 404, err);
-     	      return;
-          } 
-          console.log(location);
-          sendJSONresponse(res, 200, location);
-         });
-     } else {
-        console.log("no locationid specified");
-     	  sendJSONresponse(res, 404, {
-     	  	"message": "No locationid in request"
-	      });
-    }
-};
 
 module.exports.locationsUpdateOne = function(req, res) {
   if (!req.params.locationid) {

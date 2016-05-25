@@ -15,7 +15,7 @@ var _formatDistance = function(distance) {
     if (distance && _isNumeric(distance)) {
      if (distance > 1) {
       numDistance = parseFloat(distance).toFixed(1);
-      unit = 'km';
+      unit = 'm';
     } else {
       numDistance = parseInt(distance * 1000,10);
       unit = 'm';
@@ -124,13 +124,14 @@ var getLocationInfo = function (req, res, callback) {
 
 var renderDetailPage = function (req, res, locDetail) {
   res.render('location-info', {
+    location: locDetail,
     title: locDetail.name,
     pageHeader: {title: locDetail.name},
     sidebar: {
       context: 'is on Loc8r because it has accessible wifi and space to sit down with your laptop and get some work done.',
       callToAction: 'If you\'ve been and you like it - or if you don\'t - please leave a review to help other people just like you.'
     },
-    location: locDetail
+    location: locDetail,
   });
 };
 
