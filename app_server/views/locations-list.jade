@@ -21,9 +21,9 @@ block content
               span.badge.float-right= location.distance
                p.address= location.address
                p
-              | each facility in location.facilities
-            p
-              | facility address
+              each facility in location.facilities
+               p
+              facility.address
             .small-12 
             p.lead= sidebar
 
