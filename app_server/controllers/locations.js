@@ -131,7 +131,6 @@ var renderDetailPage = function (req, res, locDetail) {
       context: 'is on Loc8r because it has accessible wifi and space to sit down with your laptop and get some work done.',
       callToAction: 'If you\'ve been and you like it - or if you don\'t - please leave a review to help other people just like you.'
     },
-    location: locDetail,
   });
 };
 
