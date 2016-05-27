@@ -124,7 +124,6 @@ var getLocationInfo = function (req, res, callback) {
 
 var renderDetailPage = function (req, res, locDetail) {
   res.render('location-info', {
-    location: locDetail,
     title: locDetail.name,
     pageHeader: {title: locDetail.name},
     sidebar: {
