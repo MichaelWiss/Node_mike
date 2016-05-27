@@ -1,30 +1,73 @@
-| extends layout
-block content
-    .row.pageheader
-      .large-12.columns
-        h1  pageHeader.title&gt;
-    .row
-      .small-12.columns
-        h1 pageHeader.title
-      |          
-      p.rating
-        | +outputRating(location.rating)
-      p.class='location.address'
-      p.callout.secondary
-        span.warning.label
-          h2.panel-title Opening Hours
-      p.panel-body
-        | each time in location.openingTimes
-      p
-         | #{time.days} :
-        | if time.closed
-     | closed
-    | else
-    | | #{time.opening} - #{time.closing}
-    p.callout.secondary
-        span.warning.label
-          h2.panel-title Facilities
-      p.panel-body
-        | each facility in location.facilities
-        button.warning.hollow.button
+extends layout
 
+block content
+
+<div class="row pageheader">
+     <div class="large-12 columns">
+       <h1> pageHeader.title></h1>
+     </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+           <h1>pageHeader.title</h1>
+     </div>
+         <p class="rating">
+            +outputRating(location.rating)
+          <p class="location.address">
+           <p class="callout secondary">
+              <span class="warning label">
+                <h2 class="panel-title">Opening Hours</h2>
+              </span>
+            <p class="panel-body">
+             each time in location.openingTimes
+               <p>
+                  | #{time.days} : 
+                  if time.closed
+                    | closed
+                  else
+                    | #{time.opening} - #{time.closing}
+                <p class="callout secondary">
+            <span class="warning label">
+              <h2 class="panel-title">Facilities</h2>
+            </span>
+            <p class="panel-body">
+               each facility in location.facilities
+               <button class="warning hollow button">
+              <p.class="callout secondary">
+               <i class="fi-star"></i>
+                 | &nbsp;#{facility}
+                | &nbsp;
+          <div class="small-12 medium-12 location-map"></div>
+            <div class="panel-heading">
+               <h2 class="panel-title">Location map</h2>
+                 <div class="callout secondary">
+                   <div class="media-object">img.img-responsive.img-rounded(src="http://maps.googleapis.com/maps/api/staticmap?center=#{location.coords.lat},#{location.coords.lng}&zoom=17&size=400x350&sensor=false&markers=#{location.coords.lat},#{location.coords.lng}&scale=2")</div>
+<div class="row">
+      <div class="small-12 columns">
+          <p class="location.address">
+           <p class="callout secondary">
+             <a href="href="/location/#{location._id}/review/new" class="button right">Add Review</a>
+          <h2 class="panel-title">Customer reviews</h2>
+           <p class="panel-body review-container">
+            each review in location.reviews
+      </div>
+</div>
+
+<div class="row">
+              <div class="review">
+                <div class="callout secondary review-header">
+                 <span class="rating">
+                 +outputRating(review.rating)
+                 <span class="reviewAuthor">#{review.author}</span>
+                    +formatDate(review.createdOn)
+            </div>
+          </div>
+        </div>
+               <div class="small-12 columns">
+                 <p>!{(review.reviewText).replace(/\n/g, '<br/>')} 
+      <div class="small-12 medium-3 columns">
+         <p class="lead">#{location.name} #{sidebar.context}
+         <p class="sidebar callToAction">
+       </div>
+    </div>
