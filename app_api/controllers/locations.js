@@ -50,8 +50,6 @@ module.exports.locationsListByDistance = function(req, res) {
     var locations;
     console.log('Geo Results', results);
     console.log('Geo stats', stats);
-    /*console.log(res);
-    console.log(req.name);*/
   if (err) {
       console.log('geoNear error:', err);
     	sendJSONresponse(res, 404, err);
@@ -74,7 +72,6 @@ var buildLocationList = function(req, res, results, stats) {
       facilities: doc.obj.facilities,
       _id: doc.obj._id
     });
-     console.log('locations:', locations);
   });
   console.log('locations:', locations);
   return locations;
@@ -87,10 +84,6 @@ module.exports.locationsReadOne = function(req, res) {
   Loc
      .findById(req.params.locationid)
      .exec(function(err, location) {
-        /* var review; */
-
-        /* bug? */
-     
        if (!location) {
           sendJSONresponse(res, 404, {
              "message": "locationid not found"
