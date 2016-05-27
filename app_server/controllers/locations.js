@@ -10,7 +10,7 @@ var _isNumeric = function (n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
-var _formatDistance = function(distance) {
+var _formatDistance = function (distance) {
     var numDistance, unit;
     if (distance && _isNumeric(distance)) {
      if (distance > 1) {
@@ -26,7 +26,7 @@ var _formatDistance = function(distance) {
   }
  };
 
- var _showError = function (req, res, status) {
+ var _showError = function(req, res, status) {
   var title, content;
   if (status === 404) {
     title = "404, page not found";
@@ -133,21 +133,12 @@ var renderDetailPage = function (req, res, locDetail) {
     location: locDetail,
   });
 };
-
+/* GET 'Location info' page */
+/* GET 'Location info' page */
 module.exports.locationInfo = function(req, res){
-    var requestOptions, path;
-    path = "/api/locations/" + req.params.locationid;
-    requestOptions = {
-        url : apiOptions.server + path,
-        method : "GET",
-        json : {}
-    };
-    request(
-        requestOptions,
-        function(err, response, body) {
-            renderDetailPage(req, res);
-        }
-   );
+  getLocationInfo(req, res, function(req, res, responseData) {
+    renderDetailPage(req, res, responseData);
+  });
 };
 
 /* GET 'Add review page' */
