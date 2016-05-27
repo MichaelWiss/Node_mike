@@ -134,12 +134,16 @@ var renderDetailPage = function (req, res, locDetail) {
   });
 };
 /* GET 'Location info' page */
-/* GET 'Location info' page */
 module.exports.locationInfo = function(req, res){
   getLocationInfo(req, res, function(req, res, responseData) {
     renderDetailPage(req, res, responseData);
   });
 };
+var renderReviewForm = function (req, res) {
+    res.render('location-review-form', {
+        
+    })
+}
 
 /* GET 'Add review page' */
 module.exports.addReview = function(req, res){
