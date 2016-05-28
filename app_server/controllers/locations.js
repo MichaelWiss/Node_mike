@@ -146,9 +146,12 @@ var renderReviewForm = function (req, res) {
     });
 };
 
+
 /* GET 'Add review page' */
 module.exports.addReview = function(req, res){
-	 res.render('location-review-form', { title: 'Add review'});
+  getLocationInfo(req, res, function(req, res, responseData) {
+    renderReviewForm(req, res, responseData);
+  };
 };
 
 module.exports.doAddReview = function(req, res){
