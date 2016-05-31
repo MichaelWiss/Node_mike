@@ -186,4 +186,5 @@ module.exports.doAddReview = function(req, res){
             }
         }
     );
+}
 };
