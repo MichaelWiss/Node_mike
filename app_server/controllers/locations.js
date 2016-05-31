@@ -161,7 +161,8 @@ module.exports.doAddReview = function(req, res){
     postdata = {
         author: req.body.name,
         rating: parseInt(req.body.rating, 10),
-        
-    }
+        reviewText: req.body.review
+    };
+    
 
 };
