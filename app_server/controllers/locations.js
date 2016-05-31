@@ -163,6 +163,19 @@ module.exports.doAddReview = function(req, res){
         rating: parseInt(req.body.rating, 10),
         reviewText: req.body.review
     };
-    
-
+    requestOptions = {
+        url : apiOptions.server + path,
+        method : "POST",
+        json : postdata
+    };
+    request(
+        requestOptions,
+        function(err, response, body) {
+            if (response.statusCode === 201) {
+                res.redirect('/location/' + locationid);
+            } else {
+                _showError(req, res, response.statusCode);
+            }
+        }
+    );
 };
