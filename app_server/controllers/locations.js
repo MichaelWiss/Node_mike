@@ -139,7 +139,7 @@ module.exports.locationInfo = function(req, res){
     renderDetailPage(req, res, responseData);
   });
 };
-var renderReviewForm = function (req, res) {
+var renderReviewForm = function (req, res, locDetail) {
     res.render('location-review-form', {
         title: 'Review Starcups on Loc8r',
         pageHeader: { title: 'Review Starcups' }
