@@ -169,6 +169,9 @@ module.exports.doAddReview = function(req, res){
         method : "POST",
         json : postdata
     };
+    if (!postdata.author || !postdata.rating || !postdata.reviewText) {
+        res.redirect('/location/' + locationid + '/reviews/new?err=val');
+    } else {
     request(
         requestOptions,
         function(err, response, body) {
