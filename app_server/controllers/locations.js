@@ -69,31 +69,7 @@ var renderHomepage = function(req, res, responseBody){
 };
 /* GET 'home' page */
 module.exports.homelist = function(req, res){
-    var requestOptions, path;
-    path = '/api/locations';
-    requestOptions = {
-        url : apiOptions.server + path,
-        method: "GET",
-        json : {},
-        qs : {
-            lng : -93.0289030,
-            lat : 45.1022830,
-            maxDistance : 100
-        }
-    };
-    request(
-        requestOptions,
-        function(err, response, body) {
-            var i, data;
-            data = body;
-            if (response.statusCode === 200 && data.length) {
-               for (i=0; i<data.length; i++) {
-                data[i].distance = _formatDistance(data[i].distance);
-            }
-           }
-            renderHomepage(req, res, data);
-        }
-    );
+    renderHomepage(req, res);
 };
 
 var getLocationInfo = function (req, res, callback) {
