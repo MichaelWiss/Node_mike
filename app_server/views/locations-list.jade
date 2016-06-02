@@ -14,8 +14,7 @@ block content
       .row.list-group
       p
          .small-12.list.group.item(ng-repeat="location in data.locations")
-
-          h4 
+         h4 
             a(href="/location/{{ location._id }") {{ location.name }}
              small {{ location.rating }}
               span.badge.float-right {{ location.distance  }}
