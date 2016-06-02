@@ -10,7 +10,11 @@ var locationListCtrl = function ($scope) {
 	  	distance : '0.296456',
 	  	_id: '5370a35f2536f6785f8dfb6a'
 	  }, {
-	  	name
-	  }]
-	}
-}
+	  	name: 'Costy',
+	  	address : '125 High Street, Reading, RP6 1Ps',
+	  	rating: 5,
+	  	facilities: ['Hot drinks', 'Food', 'Alcoholic drinks'],
+	  	distance: '0.7865456',
+	  	_id: '5370a35f2536f6785f8dfb6a'
+	  }]};
+};
