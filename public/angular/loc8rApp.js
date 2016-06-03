@@ -1,6 +1,6 @@
-angular.module('loc8rApp', ["ngRoute"]);
+angular.module('loc8rApp', []);
 
-var locationListCtrl = function ($scope, loc8rData) {
+var locationListCtrl = function ($scope) {
 	$scope.data = {
 	  locations: [{
 	  	name : 'Burger Queen',
