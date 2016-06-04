@@ -19,7 +19,8 @@ block content
              small {{ location.rating }}
               span.badge.float-right {{ location.distance  }}
                p.address {{ location.address }}
-               p(ng-repeat="facility in location.facilities")
+               p
+               (ng-repeat="facility in location.facilities")
                p
               | {{ facility }}
             .small-12 
