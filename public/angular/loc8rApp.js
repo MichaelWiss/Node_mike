@@ -22,5 +22,4 @@ var locationListCtrl = function ($scope) {
 angular
   .module('loc8rApp')
   .controller('locationListCtrl', locationListCtrl)
-  .service('loc8rData', loc8rData);
 
