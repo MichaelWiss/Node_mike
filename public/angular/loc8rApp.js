@@ -1,4 +1,4 @@
-angular.module('loc8rApp', []);
+angular.module('loc8rApp', [require('angular-route')]);
 
 var locationListCtrl = function ($scope) {
 	$scope.data = {
@@ -20,6 +20,5 @@ var locationListCtrl = function ($scope) {
 };
 
 angular
-  .module('loc8rApp')
+  .module('loc8rApp', ['angular-route'])
   .controller('locationListCtrl', locationListCtrl);
-
