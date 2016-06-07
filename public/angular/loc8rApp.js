@@ -20,5 +20,5 @@ var locationListCtrl = function ($scope) {
 };
 
 angular
-  .module('loc8rApp', ['angular-route'])
+  .module('loc8rApp')
   .controller('locationListCtrl', locationListCtrl);
