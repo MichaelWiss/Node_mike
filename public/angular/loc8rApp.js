@@ -135,8 +135,15 @@ var loc8rData = function ($http) {
 var foursquare = require('node-foursquare-venues')(foursquareConfig);
     app.get('/', function (req, res) {
 
+    	var attributes = {
+            
+            'query': 'coffeehouse',
+            'limit': '10'
 
 	};
+
+	foursquare.venues.search
+};
 
 
 
