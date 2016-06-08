@@ -132,6 +132,12 @@ var loc8rData = function ($http) {
     }];*/
 };
 
+var fourquareConfig = {
+
+
+
+	}
+
 angular
   .module('loc8rApp')
   .controller('locationListCtrl', locationListCtrl)
