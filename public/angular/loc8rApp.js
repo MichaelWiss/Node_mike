@@ -132,11 +132,14 @@ var loc8rData = function ($http) {
     }];*/
 };
 
-var fourquareConfig = {
+var foursquare = require('node-foursquare-venues')(foursquareConfig);
+    app.get('/', function (req, res) {
+
+
+	};
 
 
 
-	}
 
 angular
   .module('loc8rApp')
