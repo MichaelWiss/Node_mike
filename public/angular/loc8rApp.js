@@ -22,7 +22,7 @@ var formatDistance = function () {
   };
 };
 
-var ratingStars = function () {
+/*var ratingStars = function () {
   return {
     // restrict: 'EA',
     scope: {
@@ -31,6 +31,16 @@ var ratingStars = function () {
     // template : "{{ thisRating }}"
     templateUrl: '/angular/rating-stars.html'
   };
+};
+*/
+
+var ratingStars = function () {
+	return {
+		scope: {
+			thisRating : '=rating'
+		},
+		templateUrl : '/angular/rating-stars.html'
+		};
 };
 
 var geolocation = function () {
@@ -132,7 +142,7 @@ var loc8rData = function ($http) {
     }];*/
 };
 
-var foursquare = require('node-foursquare-venues')(foursquareConfig);
+/*var foursquare = require('node-foursquare-venues')(foursquareConfig);
     app.get('/', function (req, res) {
 
     	var attributes = {
@@ -144,6 +154,7 @@ var foursquare = require('node-foursquare-venues')(foursquareConfig);
 
 	foursquare.venues.search
 };
+*/
 
 
 
