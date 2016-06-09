@@ -10,7 +10,8 @@ var _isNumeric = function (n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
-var _formatDistance = function (distance) {
+var _formatDistance = function () {
+    return function (distance) {
     var numDistance, unit;
     if (distance && _isNumeric(distance)) {
      if (distance > 1) {
@@ -25,6 +26,7 @@ var _formatDistance = function (distance) {
     return "?";
   }
  };
+};
 
  var _showError = function(req, res, status) {
   var title, content;
