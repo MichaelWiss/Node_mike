@@ -17,7 +17,7 @@ block content
        .small-12.list.group.item(ng-repeat="location in data.locations")
          h4
                a(href="/location/{{ location._id }") {{ location.name }}
-               small(rating-stars, rating="location.rating")
+               small.rating-stars.float-right(rating-stars, rating="location.rating")
                span.badge.float-right {{ location.distance | formatDistance }}
                p.address {{ location.address }}
                p(ng-repeat="facility in location.facilities")
