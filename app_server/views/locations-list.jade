@@ -14,8 +14,8 @@ block content
       input#filter(type="text", name="filter", ng-model="textFilter")
       .error {{ message }}
       .row.list-group
-       .small-12.list.group.item(ng-repeat="location in data.locations")
-         h4
+         .small-12.list.group.item(ng-repeat="location in data.locations")
+             h4
                a(href="/location/{{ location._id }") {{ location.name }}
                small.rating-stars(rating-stars, rating="location.rating")
                span.badge.float-right {{ location.distance | formatDistance }}
