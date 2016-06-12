@@ -34,6 +34,7 @@
 .size-72 { font-size: 72px; }
 
 .fi-star {
+	    color: #F00C2A;
         border-bottom: 1px dotted #ccc;
         padding: 10px 0 20px;
         margin-bottom: 20px;
