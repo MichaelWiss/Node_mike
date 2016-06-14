@@ -34,11 +34,23 @@
 .size-72 { font-size: 72px; }
 
 .fi-star {
-	    color: #F00C2A;
-        border-bottom: 1px dotted #ccc;
-        padding: 10px 0 20px;
+	    color: yellow;
+        
+        margin-left: 10px;
         margin-bottom: 20px;
         display: inline-block;
         line-height: 1;
         width: 10%;
       }
+
+
+
+
+
+
+
+
+
+
+
+
