@@ -3,11 +3,12 @@ angular
   .controller('homeCtrl', homeCtrl);
 
 function homeCtrl ($scope) {
-	$scope.pagHeader = {
+	var vm = this;
+	vm.pagHeader = {
 		title: 'Loc8r',
 		strapline: 'Find places to work with wifi near you!'
 	};
-	$scope.sidebar = {
+	vm.sidebar = {
 		content: "Looking for wifi and a seat etc etc"
 	};
 }
