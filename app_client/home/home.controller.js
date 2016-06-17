@@ -1,3 +1,5 @@
+(function () {
+
 angular
   .module('loc8rApp')
   .controller('homeCtrl', homeCtrl);
@@ -42,3 +44,4 @@ function homeCtrl ($scope, loc8rData, geolocation) {
 		};
 		geolocation.getPosition(vm.getData, vm.showError, vm.noGeo);
 }
+})();
