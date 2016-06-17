@@ -1,4 +1,5 @@
 (function () {
+	
 angular 
   .module('loc8rApp')
   .filter('formatDistance', formatDistance);
@@ -14,7 +15,7 @@ function formatDistance () {
 		 if (distance >1) {
 			numDistance = parseFloat(distance).toFixed(1);
 			unit = 'km';
-		}   else {
+		  } else {
 			numDistance = parseInt(distance * 1000,10);
 			unit = 'm';
 		}
