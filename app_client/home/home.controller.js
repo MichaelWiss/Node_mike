@@ -2,9 +2,10 @@ angular
   .module('loc8rApp')
   .controller('homeCtrl', homeCtrl);
 
-function homeCtrl (loc8rData, geolocation) {
+function homeCtrl ($scope, loc8rData, geolocation) {
 	var vm = this;
-	vm.pagHeader = {
+	console.log(window.location);
+	vm.pageHeader = {
 		title: 'Loc8r',
 		strapline: 'Find places to work with wifi near you!'
 	};
@@ -16,20 +17,28 @@ function homeCtrl (loc8rData, geolocation) {
 		var lat = position.coords.latitude,
 		    lng = position.coords.longitude;
 		vm.message = "Searching for nearby places";
+		console.log(lat,lng);
 		loc8rData.locationByCoords(lat, lng)
 		   .success(function(data) {
 		   	vm.message = data.length > 0 ? "" : "No locations found nearby";
 		   	vm.data = { locations: data };
+		   	console.log(vm.data);
 		   })
 		   .error(function (e) {
 		   	vm.message = "Sorry, something's gone wrong";
 		   });
 		};
 
+		vm.showError = function (error) {
+			$scope.$apply(function() {
+				vm.message= error.message;
+			});
+		};
+
 		vm.noGeo = function () {
-			vm.$apply(function() {
+			$scope.$apply(function() {
 				vm.message = "Geolocation is not supported by this browser.";
 			});
 		};
-		geolocation.getPositon(vm.getData, vm.showError, vm.noGeo);
+		geolocation.getPosition(vm.getData, vm.showError, vm.noGeo);
 }
