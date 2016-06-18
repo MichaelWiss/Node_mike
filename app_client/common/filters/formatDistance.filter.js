@@ -14,10 +14,10 @@ function formatDistance () {
 		if (distance && _isNumeric(distance)) {
 		 if (distance > 1) {
 			numDistance = parseFloat(distance).toFixed(1);
-			unit = 'km';
+			unit = 'm';
 		  } else {
 			numDistance = parseInt(distance * 1000,10);
-			unit = 'm';
+			unit = 'km';
 		}
 		return numDistance + unit;
 	  } else {
