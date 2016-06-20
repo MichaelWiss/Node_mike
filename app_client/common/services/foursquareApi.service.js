@@ -1,6 +1,4 @@
 (function () {
-
-
 angular
    .module('loc8rApp')
    .service('foursquareApi', foursquareApi);
@@ -12,16 +10,26 @@ var foursquareConfig = {
 		'redirectUrl' : 'REDIRECT_URL'
 	}
 };
-function foursquare (geolocation) {
+function foursquareApi (geolocation) {
  var foursquare = require('node-foursquare-venues')(foursquareConfig);
 
- app.get('/', function (req, res) {
+ 
 
-
-
-
-
-});
+	var params = {
+		"ll": "40.7,-74"
+	};
+ 
+	foursquare.getVenues(params, function(error, venues) {
+		if (!error) {
+			console.log(venues);
+		}
+	});
+ 
+	foursquare.exploreVenues(params, function(error, venues) {
+		if (!error) {
+  			console.log(venues);
+		}
+	});
 
 
 
