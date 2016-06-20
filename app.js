@@ -40,15 +40,15 @@ app.use(function(req, res, next) {
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
+// if (app.get('env') === 'development') {
+//   app.use(function(err, req, res, next) {
+//     res.status(err.status || 500);
+//     res.render('error', {
+//       message: err.message,
+//       error: err
+//     });
+//   });
+// }
 
 
 //foursquare
@@ -84,6 +84,30 @@ function foursquareApi (geolocation) {
 
 
 }
+
+app.get('/', function (req, res) {
+
+  foursquare.Venues.explore(location.lat, location.lng, attributes, foursquareAccessToken, function (err, venues){
+
+      // Extract the list of venues from all the data Foursquare returns.
+      var venueList = venues.groups[0].items;
+
+      // Since we're going to be voting on these, I need to give them some nice visual identifiers, I chose letters A-Z.
+      for (var i = 0; i < venueList.length; i++) {
+        venueList[i].visualId = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i];
+      }
+
+      // Prepare the information for rendering.
+      var templateInformation = {
+        'venues' : venueList
+      };
+
+      // Render!
+      res.render('index', templateInformation);
+    });
+  });
+
+
 
 //end
 
