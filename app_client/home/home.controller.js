@@ -22,34 +22,11 @@ function homeCtrl ($scope, loc8rData, geolocation) {
 		vm.message = "Searching for nearby places";
 		console.log(lat,lng);
 		loc8rData.locationByCoords(lat, lng)
-		   //.success(function(data) {
-		   //	vm.message = data.length > 0 ? "" : "No locations found nearby";
-		   //	vm.data = { locations: data };
-		   //	console.log(vm.data);
-		   //})
-           
- foursquare = require('foursquarevenues')(foursquareConfig);
- 
-	var params = {
-		"ll": "40.7,-74"
-	};
- 
-	foursquare.getVenues(params, function(error, venues) {
-		if (!error) {
-			console.log(venues);
-		}
-	});
- 
-	foursquare.exploreVenues(params, function(error, venues) {
-		if (!error) {
-  			console.log(venues);
-		}
-	});
-   
-   return {
-   	venues : venues
-   };
-
+		   .success(function(data) {
+		   	vm.message = data.length > 0 ? "" : "No locations found nearby";
+		   	vm.data = { locations: data };
+		   	console.log(vm.data);
+		   })
 		   .error(function (e) {
 		   	vm.message = "Sorry, something's gone wrong";
 		   });
