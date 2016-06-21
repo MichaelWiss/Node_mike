@@ -91,6 +91,7 @@ app.get('/', function (req, res) {
 
       // Extract the list of venues from all the data Foursquare returns.
       var venueList = venues.groups[0].items;
+      console.log(venues);
 
       // Since we're going to be voting on these, I need to give them some nice visual identifiers, I chose letters A-Z.
       for (var i = 0; i < venueList.length; i++) {
