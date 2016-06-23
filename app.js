@@ -54,7 +54,7 @@ app.use(function(req, res, next) {
 
 
 //foursquare
-
+var foursquare = require('foursquarevenues');
 var foursquareConfig = {
   'secrets' : {
     'clientId' : 'APP_CLIENT_ID',
