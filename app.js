@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 require('./app_api/models/db');
 var uglifyJS = require("uglify-js");
 var fs = require('fs');
+var env = require('node-env-file');
 
 var routes = require('./app_server/routes/index');
 var routesApi = require('./app_api/routes/index');
@@ -54,18 +55,10 @@ app.use(function(req, res, next) {
 
 
 //foursquare
-var foursquareConfig = {
-  'secrets' : {
-    'clientId' : 'APP_CLIENT_ID',
-    'clientSecret' : 'APP_CLIENT_SECRET',
-    'redirectUrl' : 'REDIRECT_URL'
-  }
-};
-function foursquareApi (geolocation) {
- var foursquare = (require('nodefoursquarevenues'))('foursquareConfig');
 
+
+var foursquare = (require('foursquarevenues'))('foursquareConfig');
  
-
   var params = {
     "ll": "40.7,-74"
   };
@@ -80,33 +73,6 @@ function foursquareApi (geolocation) {
     if (!error) {
         console.log(venues);
     }
-  });
-
-
-
-}
-
-app.get('/', function (req, res) {
-
-  foursquare.Venues.explore(location.lat, location.lng, attributes, foursquareAccessToken, function (err, venues){
-
-      // Extract the list of venues from all the data Foursquare returns.
-      var venueList = venues.groups[0].items;
-      console.log(venues);
-
-      // Since we're going to be voting on these, I need to give them some nice visual identifiers, I chose letters A-Z.
-      for (var i = 0; i < venueList.length; i++) {
-        venueList[i].visualId = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i];
-      }
-
-      // Prepare the information for rendering.
-      var templateInformation = {
-        'venues' : venueList
-      };
-
-      // Render!
-      res.render('index', templateInformation);
-    });
   });
 
 
