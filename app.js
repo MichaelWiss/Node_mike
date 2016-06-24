@@ -54,7 +54,6 @@ app.use(function(req, res, next) {
 
 
 //foursquare
-var foursquare = require('foursquarevenues');
 var foursquareConfig = {
   'secrets' : {
     'clientId' : 'APP_CLIENT_ID',
@@ -63,7 +62,7 @@ var foursquareConfig = {
   }
 };
 function foursquareApi (geolocation) {
- var foursquare = require('node-foursquare-venues')(foursquareConfig);
+ var foursquare = (require('nodefoursquarevenues'))('foursquareConfig');
 
  
 
