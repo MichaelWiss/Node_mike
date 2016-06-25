@@ -8,7 +8,6 @@ require('./app_api/models/db');
 var uglifyJS = require("uglify-js");
 var fs = require('fs');
 var env = require('node-env-file');
-require("foursquarevenues");
 
 var routes = require('./app_server/routes/index');
 var routesApi = require('./app_api/routes/index');
