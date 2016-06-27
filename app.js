@@ -1,13 +1,39 @@
+require('dotenv').load();
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-require('./app_api/models/db');
 var uglifyJS = require('uglify-js');
 var fs = require('fs');
 var env = require('node-env-file');
+
+
+require('./app_api/models/db');
+
+
+
+
+
+var foursquare = (require('foursquarevenues'))('env.clientId', 'env.clientSecret');
+ 
+  var params = {
+    "ll": "40.7,-74"
+  };
+ 
+  foursquare.getVenues(params, function(error, venues) {
+    if (!error) {
+      console.log(venues);
+    }
+  });
+ 
+  foursquare.exploreVenues(params, function(error, venues) {
+    if (!error) {
+        console.log(venues);
+    }
+  });
+
 
 
 var routes = require('./app_server/routes/index');
@@ -32,24 +58,6 @@ app.use(express.static(path.join(__dirname, 'app_client')));
 app.use('/', routes);
 app.use('/api', routesApi);
 
-
-var foursquare = (require('foursquarevenues'))('env.clientId', 'env.clientSecret');
- 
-  var params = {
-    "ll": "40.7,-74"
-  };
- 
-  foursquare.getVenues(params, function(error, venues) {
-    if (!error) {
-      console.log(venues);
-    }
-  });
- 
-  foursquare.exploreVenues(params, function(error, venues) {
-    if (!error) {
-        console.log(venues);
-    }
-  });
 
 
 
