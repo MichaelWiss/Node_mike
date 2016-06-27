@@ -16,11 +16,12 @@ require('./app_api/models/db');
 
 
 
-var foursquare = (require('foursquarevenues'))('dotenv.clientId', 'dotenv.clientSecret');
+var foursquare = (require('foursquarevenues'))('CLIENTIDKEY', 'CLIENTSECRETKEY');
  
   var params = {
     "ll": "40.7,-74"
   };
+  console.log(params);
  
   foursquare.getVenues(params, function(error, venues) {
     if (!error) {
