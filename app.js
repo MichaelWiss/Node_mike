@@ -16,7 +16,7 @@ require('./app_api/models/db');
 
 
 
-var foursquare = (require('foursquarevenues'))('env.clientId', 'env.clientSecret');
+var foursquare = (require('foursquarevenues'))('dotenv.clientId', 'dotenv.clientSecret');
  
   var params = {
     "ll": "40.7,-74"
