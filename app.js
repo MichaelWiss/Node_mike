@@ -5,9 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 require('./app_api/models/db');
-var uglifyJS = require("uglify-js");
+var uglifyJS = require('uglify-js');
 var fs = require('fs');
 var env = require('node-env-file');
+var foursquare = require('foursquarevenues'))('env.clientId', 'env.clientSecret');
+
 
 var routes = require('./app_server/routes/index');
 var routesApi = require('./app_api/routes/index');
