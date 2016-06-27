@@ -8,7 +8,6 @@ require('./app_api/models/db');
 var uglifyJS = require('uglify-js');
 var fs = require('fs');
 var env = require('node-env-file');
-var foursquare = require('foursquarevenues'))('env.clientId', 'env.clientSecret');
 
 
 var routes = require('./app_server/routes/index');
@@ -32,6 +31,31 @@ app.use(express.static(path.join(__dirname, 'app_client')));
 
 app.use('/', routes);
 app.use('/api', routesApi);
+
+
+var foursquare = (require('foursquarevenues'))('env.clientId', 'env.clientSecret');
+ 
+  var params = {
+    "ll": "40.7,-74"
+  };
+ 
+  foursquare.getVenues(params, function(error, venues) {
+    if (!error) {
+      console.log(venues);
+    }
+  });
+ 
+  foursquare.exploreVenues(params, function(error, venues) {
+    if (!error) {
+        console.log(venues);
+    }
+  });
+
+
+
+
+
+
 app.use('/users', users);
 
 // catch 404 and forward to error handler
@@ -59,23 +83,7 @@ app.use(function(req, res, next) {
 //foursquare
 
 
-var foursquare = (require('foursquarevenues'))('env.clientId', 'env.clientSecret');
- 
-  var params = {
-    "ll": "40.7,-74"
-  };
- 
-  foursquare.getVenues(params, function(error, venues) {
-    if (!error) {
-      console.log(venues);
-    }
-  });
- 
-  foursquare.exploreVenues(params, function(error, venues) {
-    if (!error) {
-        console.log(venues);
-    }
-  });
+
 
 
 
