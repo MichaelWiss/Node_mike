@@ -8,8 +8,16 @@ angular
 
 placesExplorerController.$inject = ['$scope', 'loc8rData', 'geolocation'];
 function placesExplorerController ($scope, loc8rData, geolocation) {
+    var vm = this;
+    console.log(window.location);
+    vm.pageHeader = {
+        title: 'Loc8r',
+        strapline: 'Find places to work with wifi near you!'
+    };
+};
 
 
+app.controller('placesExplorerController', function ($scope, placesExplorerService, $filter) {
 
     $scope.exploreNearby = "New York";
     $scope.exploreQuery = "";
@@ -48,7 +56,7 @@ function placesExplorerController ($scope, loc8rData, geolocation) {
                 $scope.totalRecordsCount = 0;
             }
         });
-    };
+    
 
     function filterPlaces(filterInput) {
         $scope.filteredPlaces = $filter("placeNameCategoryFilter")($scope.places, filterInput);
@@ -83,5 +91,8 @@ function placesExplorerController ($scope, loc8rData, geolocation) {
 
         return photo.items[0].prefix + '128x128' + photo.items[0].suffix;
     };
-});
+}
+        geolocation.getPosition(vm.getData, vm.showError, vm.noGeo);
+
+}
 })();
