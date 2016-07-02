@@ -7,6 +7,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var uglifyJS = require('uglify-js');
 var fs = require('fs');
+   var foursquare = (require('foursquarevenues'))('env.clientId', 'env.clientSecret');
+   var params = {
+    "ll": "40.7,-74"
+  };
 
 require('./app_api/models/db');
 
