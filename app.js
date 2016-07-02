@@ -11,7 +11,6 @@ var fs = require('fs');
    var params = {
     "ll": "40.7,-74"
   };
-var requirejs = require('requirejs');
 
 
 require('./app_api/models/db');
@@ -22,12 +21,6 @@ var routesApi = require('./app_api/routes/index');
 var users = require('./app_server/routes/users');
 
 var app = express();
-requirejs.config({
-    //Pass the top-level main.js/index.js require
-    //function to requirejs so that node modules
-    //are loaded relative to the top-level JS file.
-    nodeRequire: require
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
