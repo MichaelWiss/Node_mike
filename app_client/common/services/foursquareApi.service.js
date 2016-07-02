@@ -5,6 +5,7 @@ angular
 
 function foursquareApi ($http) {
    var foursquare = function(foursquare) {
+   
    foursquare.getVenues(params, function(error, venues) {
     if (!error) {
       console.log(venues);

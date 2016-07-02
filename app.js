@@ -6,6 +6,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var uglifyJS = require('uglify-js');
+var foursquare = (require('foursquarevenues'))('CLIENTIDKEY', 'CLIENTSECRETKEY');
+ 
+  var params = {
+    "ll": "40.7,-74"
+  };
 
 
 
