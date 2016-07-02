@@ -8,6 +8,7 @@ function foursquareApi ($http) {
    foursquare.getVenues(params, function(error, venues) {
     if (!error) {
       console.log(venues);
+      return get(venues);
     }
   });
  
