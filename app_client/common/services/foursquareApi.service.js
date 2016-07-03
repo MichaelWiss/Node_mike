@@ -4,8 +4,9 @@ angular
    .service('foursquareApi', foursquareApi);
 
 function foursquareApi ($http) {
-   var foursquare = function(foursquare) {
-   
+   var foursquare = angular.module('foursquarevenues');
+
+
    foursquare.getVenues(params, function(error, venues) {
     if (!error) {
       console.log(venues);
@@ -18,6 +19,5 @@ function foursquareApi ($http) {
         console.log(venues);
   }
 });
-};
 }
 })();
