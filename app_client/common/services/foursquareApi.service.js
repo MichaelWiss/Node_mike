@@ -3,7 +3,7 @@ angular
    .module('loc8rApp')
    .service('foursquareApi', foursquareApi);
 
-function foursquareApi () {
+function foursquareApi ($http) {
    var foursquare = angular.module('foursquarevenues');
 
 
