@@ -4,7 +4,12 @@ angular
    .service('foursquareApi', foursquareApi);
 
 function foursquareApi ($http) {
-   var foursquare = angular.module('foursquarevenues');
+   var foursquare = angular.module('foursquarevenues', []);
+
+   
+  var params = {
+    "ll": "40.7,-74"
+  };
 
 
    foursquare.getVenues(params, function(error, venues) {
