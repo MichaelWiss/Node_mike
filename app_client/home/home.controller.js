@@ -44,5 +44,7 @@ function homeCtrl ($scope, loc8rData, geolocation, foursquareApi) {
 			});
 		};
 		geolocation.getPosition(vm.getData, vm.showError, vm.noGeo);
+
+        
 }
 })();
