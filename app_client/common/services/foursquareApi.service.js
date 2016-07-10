@@ -1,29 +1,29 @@
 
-(function () {
+// (function () {
 
-angular
-   .module('loc8rApp')
-   .service('foursquareApi', foursquareApi);
+// angular
+//    .module('loc8rApp')
+//    .service('foursquareApi', foursquareApi);
 
 
-function foursquareApi ($http) {
-   var foursquare = angular.module('foursquarevenues', []);
-   var params = {
-    "ll": "40.7,-74"
-  };
+// function foursquareApi ($http) {
+//    var foursquare = angular.module('foursquarevenues', []);
+//    var params = {
+//     "ll": "40.7,-74"
+//   };
 
-foursquareApi.getVenues(params, function(error, venues) {
-    if (!error) {
-      console.log(venues);
-      return get(venues);
-    }
-  });
+// foursquareApi.getVenues(params, function(error, venues) {
+//     if (!error) {
+//       console.log(venues);
+//       return get(venues);
+//     }
+//   });
  
-  foursquare.exploreVenues(params, function(error, venues) {
-    if (!error) {
-        console.log(venues);
-  }
+//   foursquare.exploreVenues(params, function(error, venues) {
+//     if (!error) {
+//         console.log(venues);
+//   }
 
-});
-}
-})();
+// });
+// }
+// })();
