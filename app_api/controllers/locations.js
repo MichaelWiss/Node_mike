@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var foursquare = require('foursquarevenues');
+
 var Loc = mongoose.model('Location');
 
 var sendJSONresponse = function(res, status, content) {
@@ -22,6 +24,8 @@ var theEarth = (function() {
 		getRadsFromDistance : getRadsFromDistance
 	};
 })();
+
+
 
 /* GET list of locations */
 module.exports.locationsListByDistance = function(req, res) {
