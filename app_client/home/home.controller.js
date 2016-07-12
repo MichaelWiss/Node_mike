@@ -33,6 +33,8 @@ function homeCtrl ($scope, loc8rData, geolocation) {
 		   });
 		};
 
+
+
 		vm.showError = function (error) {
 			$scope.$apply(function() {
 				vm.message= error.message;

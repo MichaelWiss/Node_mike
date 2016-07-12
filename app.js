@@ -19,7 +19,7 @@ var uglifyJS = require('uglify-js');
   foursquare = (require('foursquarevenues'))(CLIENTIDKEY, CLIENTSECRETKEY);
 
   params = {
-    "query": "donuts",
+    "query": "chinese food",
     "ll": "40.7,-74",
     'limit' : 5
   };
@@ -34,7 +34,8 @@ var uglifyJS = require('uglify-js');
   });
 
   foursquare.getVenues(params, function(error, venues) {
-     return venues;
+     var results = venues;
+     console.log(results.name);        
   });
 
 
