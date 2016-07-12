@@ -1,4 +1,3 @@
-require('dotenv').load();
 require('dotenv').config();
 
 var express = require('express');
@@ -14,9 +13,10 @@ var uglifyJS = require('uglify-js');
 
 (function() {
   var foursquare, params;
+  var CLIENTIDKEY = process.env.CLIENTIDKEY;
+  var CLIENTSECRETKEY = process.env.CLIENTSECRETKEY;
 
-
-  foursquare = (require('foursquarevenues'))(process.env.CLIENTIDKEY, process.env.CLIENTSECRETKEY);
+  foursquare = (require('foursquarevenues'))(CLIENTIDKEY, CLIENTSECRETKEY);
 
   params = {
     "ll": "40.7,-74"
