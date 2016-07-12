@@ -33,6 +33,11 @@ var uglifyJS = require('uglify-js');
     return console.log(!error ? venues : error);
   });
 
+  foursquare.getVenues(params, function(error, venues) {
+     return venues;
+  });
+
+
 }).call(this);
 
 
