@@ -1,5 +1,4 @@
 require('dotenv').config();
-
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -7,14 +6,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var uglifyJS = require('uglify-js');
+var CLIENTIDKEY = process.env.CLIENTIDKEY;
+var CLIENTSECRETKEY = process.env.CLIENTSECRETKEY;
 
 
 
 
 (function() {
   var foursquare, params;
-  var CLIENTIDKEY = process.env.CLIENTIDKEY;
-  var CLIENTSECRETKEY = process.env.CLIENTSECRETKEY;
+  
 
   foursquare = (require('foursquarevenues'))(CLIENTIDKEY, CLIENTSECRETKEY);
 
@@ -35,7 +35,7 @@ var uglifyJS = require('uglify-js');
 
   foursquare.getVenues(params, function(error, venues) {
      var results = venues;
-     console.log(results.name);        
+     console.log(results);        
   });
 
 
