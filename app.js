@@ -11,6 +11,26 @@ var foursquare = require('foursquarevenues');
 var foursquare = (require('foursquarevenues'))('CLIENTIDKEY', 'CLIENTSECRETKEY');
 
 
+(function() {
+  var foursquare, params;
+
+
+  foursquare = (require('foursquarevenues'))(process.env.CLIENTIDKEY, process.env.CLIENTSECRETKEY);
+
+  params = {
+    "ll": "40.7,-74"
+  };
+
+  foursquare.getVenues(params, function(error, venues) {
+    return console.log(!error ? venues : error);
+  });
+
+  foursquare.exploreVenues(params, function(error, venues) {
+    return console.log(!error ? venues : error);
+  });
+
+}).call(this);
+
 
 
 require('./app_api/models/db');
