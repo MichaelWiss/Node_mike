@@ -19,8 +19,11 @@ var uglifyJS = require('uglify-js');
   foursquare = (require('foursquarevenues'))(CLIENTIDKEY, CLIENTSECRETKEY);
 
   params = {
-    "ll": "40.7,-74"
+    "query": "donuts",
+    "ll": "40.7,-74",
+    'limit' : 5
   };
+
 
   foursquare.getVenues(params, function(error, venues) {
     return console.log(!error ? venues : error);
