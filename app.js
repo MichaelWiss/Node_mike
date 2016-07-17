@@ -87,6 +87,10 @@ app.use('/', routes);
 app.use('/api', routesApi);
 app.use('/users', users);
 
+app.use(function(req, res) {
+  res.sendfile(path.join(_dirname, 'app_client', 'index.html'));
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
