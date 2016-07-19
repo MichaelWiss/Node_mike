@@ -1,6 +1,6 @@
 (function () {
 	
-	  angular
+	angular
 	  .module('loc8rApp')
 	  .directive('navigation', navigation);
 
@@ -11,4 +11,4 @@
 	  };
 	}
 
-})();
+}) ();
