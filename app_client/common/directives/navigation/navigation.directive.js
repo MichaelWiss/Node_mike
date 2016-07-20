@@ -7,7 +7,7 @@
 	function navigation () {
 	  return {
 	     restrict: 'EA',
-	     templatUrl: '/common/directives/navigation/navigation.template.html',
+	     templatUrl: '/common/directives/navigation/navigation.template.html'
 	  };
 	}
 
