@@ -16,7 +16,7 @@ angular.module('loc8rApp', ['ngRoute', 'ngSanitize']);
 	     })
 	     .otherwise({redirectTo: '/'});
 
-	  $locationProvider.html5Mode({enabled:true, requireBase: false});
+	   $locationProvider.html5Mode({enabled:true, requireBase: false});
     }
 
     angular
