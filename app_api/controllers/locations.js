@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var foursquare = require('foursquarevenues');
 
 var Loc = mongoose.model('Location');
 
