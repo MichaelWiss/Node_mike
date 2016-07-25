@@ -15,7 +15,7 @@ function loc8rData ($http) {
 	};
 	return {
 		locationByCoords : locationByCoords,
-		locationById : locationById
+		locationById : locationById 
 	};
 }
 
