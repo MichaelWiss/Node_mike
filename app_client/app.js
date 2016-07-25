@@ -13,6 +13,10 @@ angular.module('loc8rApp', ['ngRoute', 'ngSanitize']);
 	   	   templateUrl: '/common/views/genericText.view.html',
 	   	   controller: 'aboutCtrl',
 	   	   controllerAs: 'vm'
+	     })('/location/:locationid', {
+	     	templateUrl: '/locationDetail/locationDetail.view.html',
+	     	controller: 'locationDetailCtrl',
+	     	controllerAs: 'vm'
 	     })
 	     .otherwise({redirectTo: '/'});
 
