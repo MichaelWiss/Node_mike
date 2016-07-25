@@ -11,7 +11,7 @@
        <div class="row list-group">
          <div class="small-12 columns list-group-item" ng-repeat="location in vm.data.locations | filter :textFilter">
             <h4>
-               <a href="/location/{{ location.id }}">{{ location.name }}</a>
+               <a href="/#/location/{{ location.id }}">{{ location.name }}</a>
                <small class="rating-stars" rating-stars rating="location.rating"></small>
                <span class="badge float-right"> {{ location.distance | formatDistance }}</span>
             </h4>

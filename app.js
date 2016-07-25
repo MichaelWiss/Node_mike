@@ -60,7 +60,7 @@ var appClientFiles = [
   'app_client/app.js',
   'app_client/home/home.controller.js',
   'app_client/about/about.controller.js',
-  'app_client/locationDetail.controller.js',
+  'app_client/locationDetail/locationDetail.controller.js',
   'app_client/lib/angular-sanitize.min.js',
   'app_client/common/services/geolocation.service.js',
   'app_client/common/services/loc8rData.service.js',
