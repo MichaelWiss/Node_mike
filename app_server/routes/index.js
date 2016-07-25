@@ -10,7 +10,7 @@ router.get('/location/:locationid/review/new', ctrlLocations.addReview);
 router.post('/location/:locationid/review/new', ctrlLocations.doAddReview);
 
 /* Other pages */
-router.get('/about', ctrlOthers.about);
+router.get('/about', ctrlOthers.about); 
 
 
 module.exports = router;
