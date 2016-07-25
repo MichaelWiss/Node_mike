@@ -6,7 +6,7 @@
     locationDetailCtrl.$inject = ['$routeParams'];
 	function locationDetailCtrl ($routeparams) {
 	  var vm = this;
-        vm.locationid = $routeParams.locationid;
+      vm.locationid = $routeParams.locationid;
 	  vm.pageHeader = {
 	     title: vm.locationid
 	  };
