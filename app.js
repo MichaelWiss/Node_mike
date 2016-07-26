@@ -92,7 +92,7 @@ app.use(express.static(path.join(__dirname, 'app_client')));
 
 app.use('/', routes);
 app.use('/api', routesApi);
-app.use('/users', users);
+//app.use('/users', users);
 
 app.use(function(req, res) {
   res.sendfile(path.join(_dirname, 'app_client', 'index.html'));
