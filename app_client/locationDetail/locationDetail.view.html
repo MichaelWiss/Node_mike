@@ -21,18 +21,33 @@
                 <span class="glyphicon glyphicon-ok"></span> 
                 {{ facility }}
               </span>
-          </div>
-        </div>
-    </div>
-     <div class="small-12 medium-6 columns location-map">
+        
+        
+    
+     <div class="small-12 medium-8 columns location-map">
           
-              <h2 class="panel-title">Location map</h2>
+              <h5 class="panel-title">Location map</h5>
             </div>
             <div class="panel-body">
               <img src="http://maps.googleapis.com/maps/api/staticmap?center={{ vm.data.location.coords[1] }},{{ vm.data.location.coords[0] }}&amp;zoom=17&amp;size=400x350&amp;sensor=false&amp;markers={{ vm.data.location.coords[1] }},{{ vm.data.location.coords[0] }}&amp;scale=2" class="img-responsive img-rounded">
             
         </div>
       </div>
+    </div>
+    </div>
+      </div>
+
+       <div class="review" ng-repeat="review in vm.data.location.reviews | orderBy:'createdOn':true">
+                  <div class="well well-sm review-header">
+                    <span class="rating" rating-stars rating="review.rating"></span>
+                    <span class="reviewAuthor">{{ review.author }}</span>
+                    <small class="reviewTimestamp">{{ review.createdOn | date : 'd MMMM yyyy' }}</small>
+                  </div>
+                  <div class="col-xs-12">
+                    <p ng-bind-html="review.reviewText | addHtmlLineBreaks"></p>
+                  </div>
+                </div>
+              </div>
 
 
   <footer-generic></footer-generic>
