@@ -48,6 +48,16 @@ function homeCtrl ($scope, loc8rData, geolocation) {
 		};
 		geolocation.getPosition(vm.getData, vm.showError, vm.noGeo);
 
+
+
         
 }
+
+
+$http({
+	method: 'Get',
+	url: ''
+})
+
+
 })();
