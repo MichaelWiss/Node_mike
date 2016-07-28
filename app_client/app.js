@@ -32,9 +32,6 @@ angular.module('loc8rApp', ['ngRoute', 'ngSanitize']);
 })();
 
 
-$http.jsonp(url)
-    .success(function(data){
-        console.log(data.found);
-    });
+
 
 

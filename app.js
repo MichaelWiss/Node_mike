@@ -13,34 +13,34 @@ var CLIENTSECRETKEY = process.env.CLIENTSECRETKEY;
 
 
 
-(function() {
-  var foursquare, params;
+// (function() {
+//   var foursquare, params;
   
 
-  foursquare = (require('foursquarevenues'))(CLIENTIDKEY, CLIENTSECRETKEY);
+//   foursquare = (require('foursquarevenues'))(CLIENTIDKEY, CLIENTSECRETKEY);
 
-  params = {
-    "query": "chinese food",
-    "ll": "40.7,-74",
-    'limit' : 5
-  };
-
-
-  foursquare.getVenues(params, function(error, venues) {
-    return console.log(!error ? venues : error);
-  });
-
-  foursquare.exploreVenues(params, function(error, venues) {
-    return console.log(!error ? venues : error);
-  });
-
-  foursquare.getVenues(params, function(error, venues) {
-     var results = venues;
-     console.log(results);        
-  });
+//   params = {
+//     "query": "chinese food",
+//     "ll": "40.7,-74",
+//     'limit' : 5
+//   };
 
 
-}).call(this);
+//   foursquare.getVenues(params, function(error, venues) {
+//     return console.log(!error ? venues : error);
+//   });
+
+//   foursquare.exploreVenues(params, function(error, venues) {
+//     return console.log(!error ? venues : error);
+//   });
+
+//   foursquare.getVenues(params, function(error, venues) {
+//      var results = venues;
+//      console.log(results);        
+//   });
+
+
+// }).call(this);
 
 
 
@@ -65,11 +65,11 @@ var appClientFiles = [
   'app_client/common/services/geolocation.service.js',
   'app_client/common/services/loc8rData.service.js',
   'app_client/common/filters/formatDistance.filter.js',
+  'app_client/common/directives/ratingStars/ratingStars.directive.js',
   'app_client/common/filters/addHtmlLineBreaks.filter.js',
   'app_client/common/directives/navigation/navigation.directive.js',
   'app_client/common/directives/pageHeader/pageHeader.directive.js',
-  'app_client/common/directives/footerGeneric/footerGeneric.directive.js',
-  'app_client/common/directives/ratingStars/ratingStars.directive.js'
+  'app_client/common/directives/footerGeneric/footerGeneric.directive.js'
 ];
 var uglified = uglifyJs.minify(appClientFiles, { compress : false });
 

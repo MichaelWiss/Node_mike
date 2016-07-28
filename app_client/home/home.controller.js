@@ -54,10 +54,6 @@ function homeCtrl ($scope, loc8rData, geolocation) {
 }
 
 
-$http({
-	method: 'Get',
-	url: ''
-})
 
 
 })();
