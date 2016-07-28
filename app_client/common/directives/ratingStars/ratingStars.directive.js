@@ -7,7 +7,7 @@ angular
 
 function ratingStars () {
 	return {
-		restrict: 'EA',
+		restrict: 'E',
 		scope: {
 			thisRating : '=rating'
 		},

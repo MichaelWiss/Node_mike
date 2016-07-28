@@ -14,7 +14,7 @@
 
             <h4>
                <a href="/#/location/{{ location._id }}">{{ location.name }}</a>
-          <small class="rating-stars" rating-stars rating="location.rating"></small>
+               <small class="rating-stars" rating-stars rating="location.rating"></small>
                <span class="badge float-right"> {{ location.distance | formatDistance }}</span>
             </h4>
             <p class="address">{{ location.address }}</p>
@@ -37,3 +37,5 @@
 
   <footer-generic></footer-generic>
 </div>
+
+<script>$('.rating-stars').foundation();</script>
