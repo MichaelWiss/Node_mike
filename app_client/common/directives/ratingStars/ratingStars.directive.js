@@ -7,11 +7,12 @@ angular
 
 function ratingStars () {
 	return {
-		restrict: 'E',
+		restrict: '',
 		scope: {
 			thisRating : '=rating'
 		},
 		templateUrl: '/common/directives/ratingStars/ratingStars.template.html'
 	    };
     }
+    $($document).foundation();
 })();
