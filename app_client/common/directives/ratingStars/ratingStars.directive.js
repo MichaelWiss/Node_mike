@@ -7,12 +7,14 @@ angular
 
 function ratingStars () {
 	return {
-		restrict: '',
+		restrict: 'EA',
 		scope: {
 			thisRating : '=rating'
 		},
-		templateUrl: '/common/directives/ratingStars/ratingStars.template.html'
-	    };
-    }
-    $($document).foundation();
+		templateUrl: '/common/directives/ratingStars/ratingStars.template.html',
+    };
+ }
+
 })();
+
+$(document).foundation();
