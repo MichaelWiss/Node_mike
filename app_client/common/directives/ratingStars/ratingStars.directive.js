@@ -17,4 +17,3 @@ function ratingStars () {
 
 })();
 
-$(document).foundation();
