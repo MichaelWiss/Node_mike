@@ -18,24 +18,25 @@ function ratingStars () {
 })();
 
 
-angular.module('loc8rApp').controller('RatingDemoCtrl', function ($scope) {
-  $scope.rate = 7;
-  $scope.max = 10;
-  $scope.isReadonly = false;
+// angular.module('loc8rApp'),
+//  function ($scope) {
+//   $scope.rate = 7;
+//   $scope.max = 10;
+//   $scope.isReadonly = false;
 
-  $scope.hoveringOver = function(value) {
-    $scope.overStar = value;
-    $scope.percent = 100 * (value / $scope.max);
-  };
+//   $scope.hoveringOver = function(value) {
+//     $scope.overStar = value;
+//     $scope.percent = 100 * (value / $scope.max);
+//   };
 
-  $scope.ratingStates = [
-    {stateOn: 'fa-check-circle', stateOff: 'fa-check-circle-o'},
-    {stateOn: 'fa-star', stateOff: 'fa-start-o'},
-    {stateOn: 'fa-heart', stateOff: 'fa-ban'},
-    {stateOn: 'fa-heart'},
-    {stateOff: 'fa-power-off'}
-  ];
+//   $scope.ratingStates = [
+//     {stateOn: 'fi-star', stateOff: 'fa-check-circle-o'},
+//     {stateOn: 'fa-star', stateOff: 'fa-start-o'},
+//     {stateOn: 'fi-star', stateOff: 'fa-ban'},
+//     {stateOn: 'fi-star'},
+//     {stateOff: 'fi-star'}
+//   ];
+// });
 
 
-
-})();
+// })();
