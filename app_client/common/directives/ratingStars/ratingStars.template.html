@@ -8,17 +8,23 @@
 <span><i class="fi-star{{ thisRating<5 ? '-empty' : ''}} size-14"></i></span>
 
 
+<div ng-controller="ratingCtrl">
 
- <!-- <h4>Custom icons</h4>
-    <div ng-init="x = 5">
-      <rating value="x" max="15" state-on="'fa-check-circle'" state-off="'fa-check-circle-o'"></rating>
-      <b>(<i>Rate:</i> {{x}})</b>
+    <div ng-init="thisRating">
+      <span><i class="fi-star{{ thisRating<1 ? '-empty' : ''}} size-14"></i></span>
+<span><i class="fi-star{{ thisRating<2 ? '-empty' : ''}} size-14"></i></span>
+<span><i class="fi-star{{ thisRating<3 ? '-empty' : ''}} size-14"></i></span>
+<span><i class="fi-star{{ thisRating<4 ? '-empty' : ''}} size-14"></i></span>
+<span><i class="fi-star{{ thisRating<5 ? '-empty' : ''}} size-14"></i></span>
     </div>
-    <div ng-init="y = 2">
+    <div ng-init="thisRating">
       <rating value="thisRating" rating-states="ratingStates"></rating>
-      <b>(<i>Rate:</i> {{thisRating}})</b>
-    </div>
-</div> -->
+<span><i class="fi-star{{ thisRating<1 ? '-empty' : ''}} size-14"></i></span>
+<span><i class="fi-star{{ thisRating<2 ? '-empty' : ''}} size-14"></i></span>
+<span><i class="fi-star{{ thisRating<3 ? '-empty' : ''}} size-14"></i></span>
+<span><i class="fi-star{{ thisRating<4 ? '-empty' : ''}} size-14"></i></span>
+<span><i class="fi-star{{ thisRating<5 ? '-empty' : ''}} size-14"></i></span>    </div>
+</div>
 
 
 

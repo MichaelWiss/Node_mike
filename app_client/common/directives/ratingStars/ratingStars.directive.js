@@ -18,8 +18,7 @@ function ratingStars () {
 })();
 
 
-angular.module('loc8rApp'),
- function ($scope) {
+angular.module('foundationDemoApp').controller('RatingDemoCtrl', function ($scope) {
   $scope.rate = 7;
   $scope.max = 10;
   $scope.isReadonly = false;
@@ -30,13 +29,11 @@ angular.module('loc8rApp'),
   };
 
   $scope.ratingStates = [
-    {stateOn: 'fi-star', stateOff: 'fa-check-circle-o'},
+    {stateOn: 'fa-check-circle', stateOff: 'fa-check-circle-o'},
     {stateOn: 'fa-star', stateOff: 'fa-start-o'},
-    {stateOn: 'fi-star', stateOff: 'fa-ban'},
-    {stateOn: 'fi-star'},
-    {stateOff: 'fi-star'}
+    {stateOn: 'fa-heart', stateOff: 'fa-ban'},
+    {stateOn: 'fa-heart'},
+    {stateOff: 'fa-power-off'}
   ];
 });
-
-
-})();
+  
