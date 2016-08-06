@@ -23,7 +23,6 @@
     "node-env-file": "0.1.8",
     "request": "~2.51.0",
     "serve-favicon": "~2.1.3",
-    "uglify-js": "2.6.4",
-    "mm-foundation-0.8.0.min.js"
+    "uglify-js": "2.6.4"
   }
 }
