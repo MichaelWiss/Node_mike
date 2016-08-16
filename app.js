@@ -78,6 +78,24 @@ app.use(function(req, res, next) {
 });
 
 
+
+
+function geolocation () {
+  var getPosition = function (cbSuccess, cbError, cbNoGeo) {
+  if (navigator.geolocation) {
+     navigator.geolocation.getCurrentPosition(cbSuccess, cbError);
+  }
+  else {
+     cbNoGeo();
+  }
+  };
+  return {
+     getPosition : getPosition
+  };
+}
+var getPostion = getPostion;
+console.log(getPostion);
+
 (function() {
   var foursquare, params;
   
@@ -87,7 +105,7 @@ app.use(function(req, res, next) {
   params = {
     "query": "chinese food",
     "ll": "40.7,-74",
-    'limit' : 10
+    'limit' : 1
   };
 
 
