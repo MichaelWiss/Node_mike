@@ -87,30 +87,45 @@ app.use(function(req, res, next) {
   params = {
     "query": "chinese food",
     "ll": "40.7,-74",
-    'limit' : 5
+    'limit' : 10
   };
 
 
-  // foursquare.getVenues(params, function(error, venues) {
-  //   return console.log(!error ? venues : error);
-  // });
-  var jsonUniquePlaces;
-      jsonUniquePlaces = [];
+  foursquare.getVenues(params, function(error, venues) {
+ if (!error) {
+        console.log(venues);
+        console.log(JSON.stringify(venues, undefined, 2));
 
-  foursquare.exploreVenues(params, function(error, venues) {
-    var i, objUniquePlace, range, uniquePlaces, venueName;
+        }
+});
+  // var jsonUniquePlaces;
+  //     jsonUniquePlaces = [];
+
+  // foursquare.exploreVenues(params, function(error, venues) {
+  //   var i, objUniquePlace, range, uniquePlaces, venueName;
   
-  jsonUniquePlaces = JSON.stringify(jsonUniquePlaces);
+  // jsonUniquePlaces = JSON.stringify(jsonUniquePlaces);
 
-          return jsonUniquePlaces;
+  //         return jsonUniquePlaces;
   
-  }); 
+  // }); 
 
-  // foursquare.getVenues(params, function(error, venues) {
-  //    var results = venues;
+  var venues = foursquare.exploreVenues(params, function(error, venues) {
+if (!error) {
+console.log(JSON.stringify(venues, undefined, 2));
+
+  // var newContent = '';
+  // for (var i = 0, i <responseObject.events.length; i++){
+
+  // }
+
+}
      
-  //    return console.log(venues.name);        
-  // });
+
+
+
+});
+
 
 
 }).call(this);
