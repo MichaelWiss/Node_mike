@@ -80,21 +80,21 @@ app.use(function(req, res, next) {
 
 
 
-function geolocation () {
-  var getPosition = function (cbSuccess, cbError, cbNoGeo) {
-  if (navigator.geolocation) {
-     navigator.geolocation.getCurrentPosition(cbSuccess, cbError);
-  }
-  else {
-     cbNoGeo();
-  }
-  };
-  return {
-     getPosition : getPosition
-  };
-}
-var getPostion = getPostion;
-console.log(getPostion);
+// function geolocation () {
+//   var getPosition = function (cbSuccess, cbError, cbNoGeo) {
+//   if (navigator.geolocation) {
+//      navigator.geolocation.getCurrentPosition(cbSuccess, cbError);
+//   }
+//   else {
+//      cbNoGeo();
+//   }
+//   };
+//   return {
+//      getPosition : getPosition
+//   };
+// }
+// var getPostion = getPostion;
+// console.log(getPostion);
 
 (function() {
   var foursquare, params;
@@ -113,6 +113,7 @@ console.log(getPostion);
  if (!error) {
         console.log(venues);
         console.log(JSON.stringify(venues, undefined, 2));
+        console.log(foursquare.name);
 
         }
 });
@@ -131,6 +132,8 @@ console.log(getPostion);
   var venues = foursquare.exploreVenues(params, function(error, venues) {
 if (!error) {
 console.log(JSON.stringify(venues, undefined, 2));
+var str = JSON.parse(venues);
+// console.log(venues.name);
 
   // var newContent = '';
   // for (var i = 0, i <responseObject.events.length; i++){
