@@ -105,15 +105,14 @@ app.use(function(req, res, next) {
   params = {
     "query": "chinese food",
     "ll": "40.7,-74",
-    'limit' : 1
+    'limit' : 5
   };
 
 
   foursquare.getVenues(params, function(error, venues) {
  if (!error) {
         console.log(venues);
-        console.log(JSON.stringify(venues));
-        console.log(foursquare.name);
+        console.log(JSON.stringify(venues, undefined, 2));
 
         }
 });
@@ -132,7 +131,6 @@ app.use(function(req, res, next) {
   var venues = foursquare.exploreVenues(params, function(error, venues) {
 if (!error) {
 // var reply = JSON.parse(venues);
-console.log(JSON.stringify(venues));
 // console.log(venues.name);
 
   // var newContent = '';
