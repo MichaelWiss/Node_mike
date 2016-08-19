@@ -112,7 +112,7 @@ app.use(function(req, res, next) {
   foursquare.getVenues(params, function(error, venues) {
  if (!error) {
         console.log(venues);
-        console.log(JSON.stringify(venues, undefined, 2));
+        console.log(JSON.stringify(venues));
         console.log(foursquare.name);
 
         }
@@ -131,8 +131,8 @@ app.use(function(req, res, next) {
 
   var venues = foursquare.exploreVenues(params, function(error, venues) {
 if (!error) {
-console.log(JSON.stringify(venues, undefined, 2));
-var str = JSON.parse(venues);
+// var reply = JSON.parse(venues);
+console.log(JSON.stringify(venues));
 // console.log(venues.name);
 
   // var newContent = '';
