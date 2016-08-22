@@ -133,10 +133,16 @@ if (!error) {
 // var reply = JSON.parse(venues);
 // console.log(venues.name);
 
+
   // var newContent = '';
   // for (var i = 0, i <responseObject.events.length; i++){
 
   // }
+
+  if(venues.status === 200) {
+    response = JSON.parse(venues.responseText);
+
+  }
 
 }
      
