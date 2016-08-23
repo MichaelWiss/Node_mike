@@ -145,7 +145,9 @@ if (!error) {
     for (var i = 0; i < responseObject.venues.length; i++) {
       newContent += '<div class="event">';
       newContent += '<img class="' + responseObject.venues[i].map + ' " ';
-      newContent += 'alt="' + responseObject.venues[i]l
+      newContent += 'alt="' + responseObject.venues[i].address + '" />';
+      newContent += '<p><b>' + responseObject.venues[i].address + '</b><br>';
+      newContent += responseObject.venues[i].
 
     }
 
