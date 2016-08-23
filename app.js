@@ -141,6 +141,12 @@ if (!error) {
 
   if(venues.status === 200) {
     response = JSON.parse(venues.responseText);
+    var newContent = '';
+    for (var i = 0; i < responseObject.events.length; i++) {
+      newContent += '<div class="event">';
+      newContent += '<img class="' + responseObject.events[i].map + ' " ';
+
+    }
 
   }
 
