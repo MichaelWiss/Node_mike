@@ -147,8 +147,8 @@ if (!error) {
       newContent += '<img class="' + responseObject.venues[i].map + ' " ';
       newContent += 'alt="' + responseObject.venues[i].address + '" />';
       newContent += '<p><b>' + responseObject.venues[i].address + '</b><br>';
-      newContent += responseObject.venues[i].
-
+      newContent += responseObject.venues[i].menu + '</p>';
+      newContent += '</div';
     }
 
   }
