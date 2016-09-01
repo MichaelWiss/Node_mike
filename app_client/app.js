@@ -28,11 +28,15 @@ angular.module('loc8rApp', ['ngRoute', 'ngSanitize']);
 
 
 
+
+
+
     angular
       .module('loc8rApp')
       .config(['$routeProvider', '$locationProvider', config]);
 
 })();
+
 
 
 

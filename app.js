@@ -113,7 +113,6 @@ app.use(function(req, res, next) {
  if (!error) {
         console.log(venues);
         console.log(JSON.stringify(venues, undefined, 2));
-       
 
         }
 });
@@ -129,17 +128,19 @@ app.use(function(req, res, next) {
   
   // }); 
 
+
+
   var venues = foursquare.exploreVenues(params, function(error, venues) {
 if (!error) {
 // var reply = JSON.parse(venues);
 // console.log(venues.name);
- var obj = JSON.parse(venues);
-        console.log(obj.name);
+        console.log(venues.key);
 
   // var newContent = '';
   // for (var i = 0, i <responseObject.events.length; i++){
 
   // }
+  global.venues = venues;
 
   if(venues.status === 200) {
     response = JSON.parse(venues.responseText);
