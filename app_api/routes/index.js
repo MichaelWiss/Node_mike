@@ -18,6 +18,6 @@ router.put('/locations/:locationid/reviews/:reviewid', ctrlReviews.reviewsUpdate
 router.delete('/locations/:locationid/reviews/:reviewid', ctrlReviews.reviewsDeleteOne);
 
 // makeApicalls
-
+router.get('/');
 
 module.exports = router;
