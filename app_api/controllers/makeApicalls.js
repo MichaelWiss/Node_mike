@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 var Loc = mongoose.model('Location');
 
-module.exports = {
-  makeApicall: function() {
+module.exports.makeApicall = function(req, res) {
+
   var foursquare, params;
   
 
@@ -24,5 +24,4 @@ module.exports = {
 });
 
 
-   }
 };
