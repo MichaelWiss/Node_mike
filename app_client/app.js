@@ -19,6 +19,7 @@ angular.module('loc8rApp', ['ngRoute', 'ngSanitize']);
 	     	controller: 'locationDetailCtrl',
 	     	controllerAs: 'vm'
 	     })
+	     
 	     .otherwise({redirectTo: '/'});
 
 	   $locationProvider.html5Mode({enabled:true, requireBase: false});
