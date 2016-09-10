@@ -19,8 +19,9 @@ module.exports = {
   request(foursquare, function(err, response, body){
     var data = JSON.stringify(body);
     res.render('show', data);
+    console.log(data);
   });
-  
+
 
 
   foursquare.getVenues(params, function(error, venues) {
