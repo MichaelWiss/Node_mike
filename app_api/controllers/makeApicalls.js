@@ -4,7 +4,7 @@ var Loc = mongoose.model('Location');
 
 
 module.exports = {
-  makeApicall: function() {
+  makeApicall: function(req, res) {
   var foursquare, params;
   
 
@@ -15,6 +15,12 @@ module.exports = {
     "ll": "40.7,-74",
     'limit' : 5
   };
+
+  request(foursquare, function(err, response, body){
+    var data = JSON.stringify(body);
+    res.render('show', data);
+  });
+  
 
 
   foursquare.getVenues(params, function(error, venues) {
