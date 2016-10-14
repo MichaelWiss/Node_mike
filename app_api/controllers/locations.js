@@ -7,6 +7,8 @@ var sendJSONresponse = function(res, status, content) {
 	res.json(content);
 };
 
+
+
 var theEarth = (function() {
 	var earthRadius = 3959; //km is 6371
 
