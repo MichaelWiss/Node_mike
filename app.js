@@ -28,7 +28,7 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 var appClientFiles = [
   'app_client/app.js',
   'app_client/home/home.controller.js',
