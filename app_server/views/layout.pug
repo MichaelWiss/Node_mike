@@ -1,0 +1,56 @@
+doctype html
+html(ng-app='loc8rApp')
+   head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='/foundation/css/foundation.min.css')
+    link(rel='stylesheet', href='/foundation/css/app.css')
+    link(rel='stylesheet', href='foundation/css/foundation-icons.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+
+body
+     .title-bar(data-responsive-toggle='realEstateMenu', data-hide-for='small')
+      button.menu-icon(type='button', data-toggle='')
+      .title-bar-title Menu 
+     #realEstateMenu.top-bar
+      .top-bar-left
+        ul.menu(data-responsive-menu='accordion')
+          li.menu-text #{title}
+          li
+            a(href='#') One
+          li
+            a(href='#') Two
+          li
+            a(href='#') Three
+      .top-bar-right
+        ul.menu
+          li
+            a(href='#') My Account
+          li
+            a.button Login
+|  
+.container
+        div(ng-view)
+        block content
+
+        footer
+             small &copy Michael Wiss 2016
+
+script(src='/angular/angular.js')
+script(src='/lib/angular-route.min.js')
+script(src='/angular/loc8r.min.js')
+//script(src='/app.js')
+//script(src='/home/home.controller.js')
+//script(src='/common/services/loc8rData.service.js')
+//script(src='/common/services/geolocation.service.js')
+//script(src='/common/services/foursquareApi.service.js')
+//script(src='/common/filters/formatDistance.filter.js')
+//script(src='/common/directives/ratingStars/ratingStars.directive.js')
+script(src='/foundation/js/vendor/jquery.js')
+script(src='/javascripts/jquery-1.11.1.min.js')
+script(src='/foundation/js/vendor/foundation.core.js')
+script(src='/foundation/js/vendor/foundation.min.js')
+script(src='/foundation/js/vendor/what-input.js')
+script(src='/javascripts/validation.js')
+
+
