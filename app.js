@@ -9,6 +9,7 @@ var uglifyJs = require("uglify-js");
 var fs = require('fs');
 var CLIENTIDKEY = process.env.CLIENTIDKEY;
 var CLIENTSECRETKEY = process.env.CLIENTSECRETKEY;
+var MAP_API = process.env.MAP_API
 
 
 
@@ -28,7 +29,7 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
-app.set('view engine', 'pug');
+app.set('view engine', 'jade');
 var appClientFiles = [
   'app_client/app.js',
   'app_client/home/home.controller.js',
